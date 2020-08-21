@@ -1,7 +1,14 @@
 import Head from "next/head";
 import fetch from "node-fetch";
+import { useRouter } from "next/router";
 
 export default function Property({ uuid, description, title }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Properety Loading......I'm sorry for the wait!!</div>;
+  }
+
   return (
     <div>
       <Head>
@@ -22,7 +29,7 @@ export async function getStaticProps(ctx) {
   const res = await fetch(`${process.env.STATIC_API}/property/${uuid}`);
   const json = await res.json();
 
-  return { props: json };
+  return { props: json, unstable_revalidate: 900 };
 }
 
 export async function getStaticPaths() {
@@ -39,7 +46,7 @@ export async function getStaticPaths() {
   });
 
   return {
-    fallback: false,
+    fallback: true,
     paths,
   };
 }
