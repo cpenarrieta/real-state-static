@@ -30,7 +30,7 @@ export async function getStaticProps(ctx) {
   const res = await fetch(`${process.env.STATIC_API}/user/${username}`);
   const json = await res.json();
 
-  return { props: json, unstable_revalidate: 900 };
+  return { props: json, revalidate: 900 };
 }
 
 export async function getStaticPaths() {
