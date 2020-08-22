@@ -2,11 +2,19 @@ import Head from "next/head";
 import fetch from "node-fetch";
 import { useRouter } from "next/router";
 
-export default function Agent({ firstName, lastName, phone }) {
+export default function Agent({ error, firstName, lastName, phone }) {
   const router = useRouter();
 
   if (router.isFallback) {
     return <div>User Loading......I'm sorry for the wait!!</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h4>Agent not Found</h4>
+      </div>
+    );
   }
 
   return (
@@ -28,9 +36,17 @@ export async function getStaticProps(ctx) {
   const username = ctx.params.username;
 
   const res = await fetch(`${process.env.STATIC_API}/user/${username}`);
-  const json = await res.json();
+  if (res.status >= 200 && res.status < 300) {
+    const json = await res.json();
+    return { props: json, revalidate: 900 };
+  }
 
-  return { props: json, revalidate: 900 };
+  return {
+    props: {
+      error: true,
+    },
+    revalidate: 1,
+  };
 }
 
 export async function getStaticPaths() {
