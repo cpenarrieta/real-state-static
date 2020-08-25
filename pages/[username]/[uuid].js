@@ -1,9 +1,9 @@
-import Head from "next/head";
-import fetch from "node-fetch";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import PropertyPage from "../../components/property";
 
-export default function Property({ error, uuid, description, title }) {
+export default function Property({ error, ...property }) {
   const router = useRouter();
 
   if (router.isFallback) {
@@ -23,45 +23,30 @@ export default function Property({ error, uuid, description, title }) {
     );
   }
 
-  return (
-    <div>
-      <Head>
-        <title>Property - {title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className="py-20">
-        <h1 className="text-5xl text-center text-accent-1">{uuid}</h1>
-        <h5 className="text-md text-center text-accent-1">{description}</h5>
-        <Link href={`/${username}`}>
-          <a>Agent page</a>
-        </Link>
-      </div>
-    </div>
-  );
+  return <PropertyPage {...property} username={username} />;
 }
 
 export async function getStaticProps(ctx) {
   const uuid = ctx.params.uuid;
 
-  const res = await fetch(`${process.env.STATIC_API}/property/${uuid}`);
-  if (res.status >= 200 && res.status < 300) {
-    const json = await res.json();
-    return { props: json, revalidate: 900 };
-  }
+  try {
+    const res = await axios(`${process.env.STATIC_API}/property/${uuid}`);
 
-  return {
-    props: {
-      error: true,
-    },
-    revalidate: 1,
-  };
+    return { props: res.data, revalidate: 900 };
+  } catch (e) {
+    return {
+      props: {
+        error: true,
+      },
+      revalidate: 1,
+    };
+  }
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.STATIC_API}/properties`);
-  const json = await res.json();
+  const res = await axios(`${process.env.STATIC_API}/properties`);
 
-  const paths = json.map((a) => {
+  const paths = res.data.map((a) => {
     return {
       params: {
         uuid: a.uuid.toString(),
