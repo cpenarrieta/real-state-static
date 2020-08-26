@@ -1,6 +1,9 @@
 import React, { useState, useContext } from "react";
 import { FetchContext } from "../../context/FetchContext";
 import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
+import SuccessLeadBanner from "./SuccessLeadBanner";
+import ErrorLeadBanner from "./ErrorLeadBanner";
 
 export default function LeadForm() {
   const router = useRouter();
@@ -10,6 +13,9 @@ export default function LeadForm() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [cookies] = useCookies(["visitorId"]);
+
+  const buttonDisabled = !email || !name || !phone;
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -21,11 +27,20 @@ export default function LeadForm() {
         name,
         uuid,
         phone,
+        visitorId: cookies.visitorId,
       });
-      setSuccessMessage(data.message);
+      setSuccessMessage(data?.st);
     } catch (err) {
-      setErrorMessage(err.response.data.message);
+      setErrorMessage(true);
     }
+  }
+
+  if (successMessage && !errorMessage) {
+    return <SuccessLeadBanner />;
+  }
+
+  if (errorMessage) {
+    return <ErrorLeadBanner />;
   }
 
   return (
@@ -50,6 +65,8 @@ export default function LeadForm() {
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
+            minLength={2}
+            maxLength={100}
           />
         </div>
       </div>
@@ -66,7 +83,7 @@ export default function LeadForm() {
           <input
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-email"
-            type="text"
+            type="email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
@@ -77,6 +94,7 @@ export default function LeadForm() {
           <label
             className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
             htmlFor="inline-full-name"
+            type="tel"
           >
             Phone
           </label>
@@ -88,6 +106,8 @@ export default function LeadForm() {
             type="text"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
+            minLength={10}
+            maxLength={10}
           />
         </div>
       </div>
@@ -97,7 +117,10 @@ export default function LeadForm() {
           <input
             type="submit"
             value="Submit"
-            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            disabled={buttonDisabled}
+            className={`shadow bg-${buttonDisabled ? "gray" : "purple"}-500
+            ${buttonDisabled ? "" : "hover:bg-purple-400"}
+            focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded`}
           />
         </div>
       </div>

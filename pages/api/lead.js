@@ -5,7 +5,7 @@ const handler = nextConnect();
 handler.use(database);
 
 handler.post(async (req, res) => {
-  const { email, name, uuid, phone } = req.body;
+  const { email, name, uuid, phone, visitorId } = req.body;
 
   if (!uuid) return res.status(400).json({ message: "uuid not found" });
   if (!email) return res.status(400).json({ message: "email not found" });
@@ -25,8 +25,8 @@ handler.post(async (req, res) => {
     const propertyId = propertyData.rows[0].id;
 
     const data = await req.db.query(
-      `INSERT INTO lead(email, "propertyId", phone, name) VALUES($1, $2, $3, $4) RETURNING "propertyId", "visitorId"`,
-      [email, propertyId, phone, name]
+      `INSERT INTO lead(email, "propertyId", phone, name, "visitorId") VALUES($1, $2, $3, $4, $5) RETURNING "propertyId", "visitorId"`,
+      [email, propertyId, phone, name, visitorId]
     );
 
     if (data.rows.length <= 0) {

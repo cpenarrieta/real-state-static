@@ -1,10 +1,25 @@
+import { useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCookies } from "react-cookie";
+import { v4 as uuidv4 } from "uuid";
 import PropertyPage from "../../components/property";
 
 export default function Property({ error, ...property }) {
   const router = useRouter();
+  const [cookies, setCookie] = useCookies(["visitorId"]);
+
+  useEffect(() => {
+    if (!cookies.visitorId) {
+      setCookie("visitorId", uuidv4(), {
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+        sameSite: true,
+        maxAge: 2147483647,
+      });
+    }
+  }, []);
 
   if (router.isFallback) {
     return <div>Properety Loading......I'm sorry for the wait!!</div>;
