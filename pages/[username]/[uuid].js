@@ -1,24 +1,27 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCookies } from "react-cookie";
-import { v4 as uuidv4 } from "uuid";
+import { FetchContext } from "../../context/FetchContext";
+
 import PropertyPage from "../../components/property";
 
 export default function Property({ error, ...property }) {
   const router = useRouter();
-  const [cookies, setCookie] = useCookies(["visitorId"]);
+  const fetchContext = useContext(FetchContext);
 
   useEffect(() => {
-    if (!cookies.visitorId) {
-      setCookie("visitorId", uuidv4(), {
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-        sameSite: true,
-        maxAge: 2147483647,
-      });
+    async function visitorFunction() {
+      const { uuid } = router.query;
+      try {
+        await fetchContext.staticAxios.post(`/visitor`, {
+          uuid,
+        });
+      } catch (e) {
+        // ERROR send to Bugsnag
+      }
     }
+    visitorFunction();
   }, []);
 
   if (router.isFallback) {

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FetchContext } from "../../context/FetchContext";
 import { useRouter } from "next/router";
-import { useCookies } from "react-cookie";
 import SuccessLeadBanner from "./SuccessLeadBanner";
 import ErrorLeadBanner from "./ErrorLeadBanner";
 
@@ -13,7 +12,6 @@ export default function LeadForm() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [cookies] = useCookies(["visitorId"]);
 
   const buttonDisabled = !email || !name || !phone;
 
@@ -27,7 +25,6 @@ export default function LeadForm() {
         name,
         uuid,
         phone,
-        visitorId: cookies.visitorId,
       });
       setSuccessMessage(data?.st);
     } catch (err) {

@@ -1,11 +1,13 @@
 import nextConnect from "next-connect";
 import database from "./middleware/database";
+import { getVisitorCookie } from "./utils";
+import { v4 as uuidv4 } from "uuid";
 
 const handler = nextConnect();
 handler.use(database);
 
 handler.post(async (req, res) => {
-  const { email, name, uuid, phone, visitorId } = req.body;
+  const { email, name, uuid, phone } = req.body;
 
   if (!uuid) return res.status(400).json({ message: "uuid not found" });
   if (!email) return res.status(400).json({ message: "email not found" });
@@ -24,19 +26,39 @@ handler.post(async (req, res) => {
 
     const propertyId = propertyData.rows[0].id;
 
-    const data = await req.db.query(
-      `INSERT INTO lead(email, "propertyId", phone, name, "visitorId") VALUES($1, $2, $3, $4, $5) RETURNING "propertyId", "visitorId"`,
-      [email, propertyId, phone, name, visitorId]
-    );
-
-    if (data.rows.length <= 0) {
-      return res.status(400).json({ message: "user not found" });
+    let visitorId = getVisitorCookie(req);
+    console.log(visitorId);
+    if (!visitorId) {
+      visitorId = uuidv4();
     }
 
-    res.json({ st: "ok" });
+    const leadData = await req.db.query(
+      `SELECT * FROM public.lead WHERE "visitorId" = $1`,
+      [visitorId]
+    );
+
+    if (leadData.rows.length <= 0) {
+      const data = await req.db.query(
+        `INSERT INTO lead(email, "propertyId", phone, name, "visitorId") VALUES($1, $2, $3, $4, $5) RETURNING "propertyId", "visitorId"`,
+        [email, propertyId, phone, name, visitorId]
+      );
+
+      if (data.rows.length <= 0) {
+        return res.status(400).json({ message: "Lead not found" });
+      }
+
+      res.json({ st: "ok" });
+    } else {
+      await req.db.query(
+        `UPDATE lead SET email=$1, "propertyId"=$2, phone=$3, name=$4 WHERE "visitorId" = $5
+        `,
+        [email, propertyId, phone, name, visitorId]
+      );
+
+      res.json({ st: "ok" });
+    }
   } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Error creating lead User" });
+    res.status(500).json({ message: "Error creating lead" });
   }
 });
 
