@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  purge: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       spacing: {
@@ -29,18 +29,15 @@ module.exports = {
         "9/12": "75%",
         "10/12": "83.333333%",
         "11/12": "91.666667%",
-        '72': '18rem',
+        72: "18rem",
       },
       colors: {
         "brand-blue": "#1992d4",
-        'accent-1': '#333',
+        "accent-1": "#333",
       },
     },
   },
   variants: {},
-  plugins: [],
-  purge: [
-    './pages/**/*.js',
-    './components/**/*.js'
-  ]
-}
+  plugins: [require("@tailwindcss/ui")],
+  purge: ["./pages/**/*.js", "./components/**/*.js"],
+};
