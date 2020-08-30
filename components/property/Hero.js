@@ -14,8 +14,10 @@ export default function Hero({ title, mainPicture, price }) {
             />
             <h1 className="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
               {title}
-              <br/>
-              <span className="text-brand-blue">{`$ ${new Intl.NumberFormat('en-us').format(price)}`}</span>
+              <br />
+              <span className="text-brand-blue">{`$ ${new Intl.NumberFormat(
+                "en-us"
+              ).format(price)}`}</span>
             </h1>
             <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
               Workcation helps you find work-friendly rentals in beautiful
@@ -38,107 +40,6 @@ export default function Hero({ title, mainPicture, price }) {
             src={mainPicture}
             alt="Property hero"
           />
-        </div>
-      </div>
-      <div>
-        <div className="max-w-md sm:max-w-xl lg:max-w-6xl mx-auto px-8 lg:px-12 py-8">
-          <h2 className="text-xl text-gray-900">Popular destinations</h2>
-          <p className="text-gray-600">
-            A selection of great work-friendly cities with lots to see and
-            explore.
-          </p>
-          <div className="flex flex-wrap -mx-4">
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-            <div className="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3">
-              <DestinationCard
-                imageUrl={
-                  "https://res.cloudinary.com/real-state-app/image/upload/v1597896410/real-state-app/0012f625323bc466ba586bbff0600e9d7ca.jpg"
-                }
-                imageAlt={"alt image"}
-                city={"Langley"}
-                price={1236}
-              />
-            </div>
-          </div>
         </div>
       </div>
     </div>

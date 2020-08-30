@@ -11,7 +11,22 @@ handler.get(async (req, res) => {
 
   try {
     const data = await req.db.query(
-      `SELECT * FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
+      `SELECT p.*,
+        u.email as "userEmail", 
+        u."firstName" as "userFirstName", 
+        u."lastName" as "userLastName", 
+        u.phone as "userPhone", 
+        u.picture as "userPicture", 
+        u."pictureLowRes" as "userPictureLowRes",
+        u.address1 as "userAddress1", 
+        u.address2 as "userAddress2", 
+        u.city as "userCity", 
+        u.province as "userProvince", 
+        u."zipCode" as "userZipcode", 
+        u.country as "userCountry"
+      FROM public.property as p
+        INNER JOIN public.user as u on u.id = p."userId"
+      WHERE p.status in ('ACTIVE', 'SOLD') and p."publishedStatus" = 'PUBLISHED' and p.uuid = $1`,
       [propertyId]
     );
 
