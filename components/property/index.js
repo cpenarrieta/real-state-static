@@ -3,6 +3,7 @@ import Head from "next/head";
 import Hero from "./Hero";
 import LeadForm from "./LeadForm";
 import ImageGrid from "./ImageGrid";
+import Footer from './Footer'
 import {FIRST_URL, THUMB_URL} from './imagesConstants'
 
 export default function PropertyPage({
@@ -35,6 +36,7 @@ export default function PropertyPage({
         userProvince={userProvince}
         userZipcode={userZipcode}
       />
+      <Footer />
     </div>
   );
 }
