@@ -4,3 +4,5 @@ export const THUMB_URL =
   "https://res.cloudinary.com/real-state-app/image/upload/c_thumb,w_100,g_face/";
 export const CARD_URL =
   "https://res.cloudinary.com/real-state-app/image/upload/w_400/";
+  export const CARD_MOBILE_URL =
+  "https://res.cloudinary.com/real-state-app/image/upload/w_600/";

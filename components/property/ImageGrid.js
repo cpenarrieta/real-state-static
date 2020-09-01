@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FIRST_URL, CARD_URL } from "./imagesConstants";
+import { FIRST_URL, CARD_URL, CARD_MOBILE_URL } from "./imagesConstants";
 import ImageModal from "./ImageModal";
 
 export default function ImageGrid({ pictures }) {
@@ -14,26 +14,43 @@ export default function ImageGrid({ pictures }) {
             <ul className="space-y-12 sm:grid sm:grid-cols-2 sm:col-gap-6 sm:row-gap-12 sm:space-y-0 lg:grid-cols-3 lg:col-gap-8">
               {pictures.map((image, key) => {
                 const cardImage = image.replace(FIRST_URL, CARD_URL);
+                const cardMobileImage = image.replace(FIRST_URL, CARD_MOBILE_URL);
 
                 return (
-                  <li
-                    className="cursor-pointer"
-                    key={key}
-                    onClick={() => {
-                      setImageKey(0);
-                      setShowModal(true);
-                    }}
-                  >
-                    <div className="space-y-4">
-                      <div className="relative pb-2/3">
-                        <img
-                          className="absolute object-cover h-full w-full shadow-lg rounded-lg"
-                          src={cardImage}
-                          alt={`alt-${key}`}
-                        />
+                  <div key={key}>
+                    <li
+                      className="hidden sm:block sm:cursor-pointer"
+                      key={`${key}-desk-ima`}
+                      onClick={() => {
+                        setImageKey(key);
+                        setShowModal(true);
+                      }}
+                    >
+                      <div className="space-y-4">
+                        <div className="relative pb-2/3">
+                          <img
+                            className="absolute object-cover h-full w-full shadow-lg rounded-lg"
+                            src={cardImage}
+                            alt={`alt-${key}`}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                    <li
+                      className="sm:hidden"
+                      key={`${key}-mob-ima`}
+                    >
+                      <div className="space-y-4">
+                        <div className="relative pb-2/3">
+                          <img
+                            className="absolute object-cover h-full w-full shadow-lg rounded-lg"
+                            src={cardMobileImage}
+                            alt={`alt-${key}`}
+                          />
+                        </div>
+                      </div>
+                    </li>
+                  </div>
                 );
               })}
             </ul>

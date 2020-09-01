@@ -12,25 +12,33 @@ export default function ImageModal({
   setImageKey,
   pictures,
 }) {
+  const goLeft = () => {
+    setImageKey((k) => {
+      if (k === 0) {
+        return pictures.length - 1;
+      }
+      return k - 1;
+    });
+  };
+
+  const goRight = () => {
+    setImageKey((k) => {
+      if (k === pictures.length - 1) {
+        return 0;
+      }
+      return k + 1;
+    });
+  };
+
   const handleUserKeyPress = useCallback((event) => {
-    const { key, keyCode } = event;
+    const { keyCode } = event;
 
     if (keyCode === ESCAPE) {
       setShowModal(false);
     } else if (keyCode === LEFT) {
-      setImageKey((k) => {
-        if (k === 0) {
-          return pictures.length - 1;
-        }
-        return k - 1;
-      });
+      goLeft();
     } else if (keyCode === RIGHT) {
-      setImageKey((k) => {
-        if (k === pictures.length - 1) {
-          return 0;
-        }
-        return k + 1;
-      });
+      goRight();
     }
   }, []);
 
@@ -44,7 +52,7 @@ export default function ImageModal({
 
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto">
-      <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+      <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <Transition
           show={showModal}
           enter="ease-out duration-300"
@@ -76,19 +84,90 @@ export default function ImageModal({
           leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         >
           {(ref) => (
-            <div
-              ref={ref}
-              className="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-6xl sm:w-full sm:p-6"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="modal-headline"
-            >
-              <img
-                className="object-cover h-full w-full shadow-lg rounded-lg"
-                src={pictures[imageKey]}
-                alt={`alt`}
-              />
-            </div>
+            <>
+              <div
+                ref={ref}
+                className="inline-block bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-6xl sm:w-full sm:p-6"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="modal-headline"
+              >
+                <div className="absolute top-0 right-0 pt-4 pr-4">
+                  <button
+                    type="button"
+                    className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
+                    aria-label="Close"
+                    onClick={() => setShowModal(false)}
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div className="absolute bottom-0 left-0">
+                  <button
+                    type="button"
+                    className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
+                    aria-label="Left"
+                    onClick={() => goLeft()}
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div className="absolute bottom-0 right-0">
+                  <button
+                    type="button"
+                    className="text-gray-400 hover:text-gray-500 focus:outline-none focus:text-gray-500 transition ease-in-out duration-150"
+                    aria-label="Right"
+                    onClick={() => goRight()}
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <img
+                  className="object-cover h-full w-full shadow-lg rounded-lg"
+                  src={pictures[imageKey]}
+                  alt={`alt`}
+                />
+              </div>
+            </>
           )}
         </Transition>
       </div>
