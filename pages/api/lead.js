@@ -16,7 +16,7 @@ handler.post(async (req, res) => {
 
   try {
     const propertyData = await req.db.query(
-      `SELECT * FROM public.property WHERE status = 'ACTIVE' and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
+      `SELECT * FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
       [uuid]
     );
 

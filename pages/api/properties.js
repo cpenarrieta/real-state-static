@@ -7,7 +7,7 @@ handler.use(database);
 handler.get(async (req, res) => {
   try {
     const data = await req.db.query(
-      `SELECT uuid, username FROM public.property WHERE status = 'ACTIVE' and "publishedStatus" = 'PUBLISHED'`
+      `SELECT uuid, username FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED'`
     );
 
     res.json(data.rows);

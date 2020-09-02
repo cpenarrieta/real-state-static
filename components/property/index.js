@@ -9,6 +9,10 @@ import { FIRST_URL, THUMB_URL } from "./imagesConstants";
 
 export default function PropertyPage({
   title,
+  bedrooms,
+  bathrooms,
+  city,
+  province,
   mainPicture,
   price,
   userEmail,
@@ -22,6 +26,9 @@ export default function PropertyPage({
   userFirstName,
   userLastName,
   userPicture,
+  status,
+  publishedStatus,
+  userSmallBio,
 }) {
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
@@ -31,7 +38,17 @@ export default function PropertyPage({
         <title>Property - {title}</title>
         <link rel="icon" href={icon} />
       </Head>
-      <Hero title={title} mainPicture={mainPicture} price={price} />
+      <Hero
+        title={title}
+        mainPicture={mainPicture}
+        price={price}
+        bedrooms={bedrooms}
+        bathrooms={bathrooms}
+        city={city}
+        province={province}
+        status={status}
+        publishedStatus={publishedStatus}
+      />
       {pictures && <ImageGrid pictures={pictures} />}
 
       {/* Neraby Items
@@ -47,6 +64,7 @@ export default function PropertyPage({
         userFirstName={userFirstName}
         userLastName={userLastName}
         userPicture={userPicture}
+        userSmallBio={userSmallBio}
       />
 
       {otherProperties && otherProperties.length > 0 && (

@@ -23,7 +23,8 @@ handler.get(async (req, res) => {
         u.city as "userCity", 
         u.province as "userProvince", 
         u."zipCode" as "userZipcode", 
-        u.country as "userCountry"
+        u.country as "userCountry",
+        u."smallBio" as "userSmallBio"
       FROM public.property as p
         INNER JOIN public.user as u on u.id = p."userId"
       WHERE p.status in ('ACTIVE', 'SOLD') and p."publishedStatus" = 'PUBLISHED' and p.uuid = $1`,

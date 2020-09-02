@@ -1,7 +1,20 @@
 import React from "react";
-import {formatPrice} from '../utils/price'
+import { formatPrice } from "../utils/price";
+import { getPropertyBadge } from "../utils/propertyStatus";
 
-export default function Hero({ title, mainPicture, price }) {
+export default function Hero({
+  title,
+  mainPicture,
+  price,
+  bedrooms,
+  bathrooms,
+  city,
+  province,
+  status,
+  publishedStatus,
+}) {
+  const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
+
   return (
     <div id="app">
       <div className="bg-gray-50 flex">
@@ -14,15 +27,24 @@ export default function Hero({ title, mainPicture, price }) {
             />
             <h1 className="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
               {title}
-              <br />
-              <span className="text-brand-blue">{`$ ${formatPrice(price)}`}</span>
             </h1>
-            <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
-              Workcation helps you find work-friendly rentals in beautiful
-              locations so you can enjoy some nice weather even when you're not
-              on vacation.
-            </p>
-            <div className="mt-4 sm:mt-6">
+            <h3 className="text-xl font-medium text-gray-500 leading-tight">
+              {city}, {province}
+            </h3>
+            <h1 className="mt-2 text-2xl font-bold leading-tight text-brand-blue">
+              {`$ ${formatPrice(price)}`}
+            </h1>
+            <div className="mt-2 sm:mt-6 flex items-baseline">
+              <span
+                className={`inline-block bg-${badgeColor}-200 text-${badgeColor}-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide`}
+              >
+                {badgeText}
+              </span>
+              <div className="ml-2 text-gray-600 text-xs uppercase font-semibold tracking-wide">
+                {bedrooms} beds &bull; {bathrooms} baths
+              </div>
+            </div>
+            <div className="mt-2 sm:mt-6">
               <a
                 href="#form-lead-section"
                 className="btn bg-brand-blue text-white shadow-lg sm:text-base px-5 py-3 rounded-lg uppercase tracking-wider font-semi-bold"
