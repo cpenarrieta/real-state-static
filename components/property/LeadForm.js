@@ -20,6 +20,9 @@ export default function LeadForm({
   userCity,
   userProvince,
   userZipcode,
+  userFirstName,
+  userLastName,
+  userPicture,
 }) {
   const router = useRouter();
   const fetchContext = useContext(FetchContext);
@@ -65,7 +68,7 @@ export default function LeadForm({
         <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
           <div className="max-w-lg mx-auto">
             <h2 className="text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl sm:leading-9">
-              Get in touch
+              Get in touch with {userFirstName}
             </h2>
             <p className="mt-3 text-lg leading-6 text-gray-500">
               Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat

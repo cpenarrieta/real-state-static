@@ -1,10 +1,10 @@
 import React from "react";
-import DestinationCard from "./DestinationCard";
+import {formatPrice} from '../utils/price'
 
 export default function Hero({ title, mainPicture, price }) {
   return (
     <div id="app">
-      <div className="bg-gray-100 flex">
+      <div className="bg-gray-50 flex">
         <div className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
           <div className="xl:max-w-lg xl:ml-auto">
             <img
@@ -15,9 +15,7 @@ export default function Hero({ title, mainPicture, price }) {
             <h1 className="mt-6 text-2xl font-bold text-gray-900 leading-tight sm:mt-8 sm:text-4xl lg:text-3xl xl:text-4xl">
               {title}
               <br />
-              <span className="text-brand-blue">{`$ ${new Intl.NumberFormat(
-                "en-us"
-              ).format(price)}`}</span>
+              <span className="text-brand-blue">{`$ ${formatPrice(price)}`}</span>
             </h1>
             <p className="mt-2 text-gray-600 sm:mt-4 sm:text-xl">
               Workcation helps you find work-friendly rentals in beautiful

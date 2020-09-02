@@ -6,7 +6,7 @@ import { FetchContext } from "../../context/FetchContext";
 
 import PropertyPage from "../../components/property";
 
-export default function Property({ error, ...property }) {
+export default function Property({ error, property, otherProperties }) {
   const router = useRouter();
   const fetchContext = useContext(FetchContext);
 
@@ -41,16 +41,33 @@ export default function Property({ error, ...property }) {
     );
   }
 
-  return <PropertyPage {...property} username={username} />;
+  return (
+    <PropertyPage
+      {...property}
+      otherProperties={otherProperties}
+      username={username}
+    />
+  );
 }
 
 export async function getStaticProps(ctx) {
   const uuid = ctx.params.uuid;
+  const username = ctx.params.username;
 
   try {
     const res = await axios(`${process.env.STATIC_API}/property/${uuid}`);
+    let otherProperties = [];
 
-    return { props: res.data, revalidate: 900 };
+    try {
+      const otherRes = await axios(
+        `${process.env.STATIC_API}/otherProperties/${username}/${uuid}`
+      );
+      otherProperties = otherRes.data;
+    } catch {
+      otherProperties = [];
+    }
+
+    return { props: { property: res.data, otherProperties }, revalidate: 900 };
   } catch (e) {
     return {
       props: {
@@ -64,11 +81,11 @@ export async function getStaticProps(ctx) {
 export async function getStaticPaths() {
   const res = await axios(`${process.env.STATIC_API}/properties`);
 
-  const paths = res.data.map((a) => {
+  const paths = res.data.map((property) => {
     return {
       params: {
-        uuid: a.uuid.toString(),
-        username: a.username.toString(),
+        uuid: property.uuid.toString(),
+        username: property.username.toString(),
       },
     };
   });
