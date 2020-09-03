@@ -2,7 +2,7 @@ import React from "react";
 import { formatPrice } from "../utils/price";
 import { getPropertyBadge } from "../utils/propertyStatus";
 
-export default function Hero({
+export default function HeroBackground({
   title,
   mainPicture,
   price,
@@ -17,16 +17,18 @@ export default function Hero({
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
 
   return (
-    <div className="relative bg-gray-50">
-      <div className="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
-        <img
-          className="w-full h-full object-cover"
-          src={mainPicture}
-          alt="main property"
-        />
-      </div>
+    <div
+      className="h-screen"
+      style={{
+        backgroundImage: `url("${mainPicture}")`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"></div>
       <div className="relative max-w-screen-xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
-        <div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
+        <div className="bg-white bg-opacity-75 rounded-md max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 p-10">
           <div>
             <span
               className={`inline-block bg-${badgeColor}-200 text-${badgeColor}-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide`}

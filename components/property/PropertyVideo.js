@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PropertyVideo({ videoUrl, videoType }) {
   return (
-    <div className="bg-white">
+    <div className="bg-gray-50">
       <div className="mx-auto pb-10 px-4 max-w-screen-xl sm:px-6 lg:px-8">
         {videoType === "YOUTUBE" && (
           <iframe

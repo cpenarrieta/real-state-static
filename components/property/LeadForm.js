@@ -53,7 +53,7 @@ export default function LeadForm({
   }
 
   return (
-    <div className="relative bg-white-50" id="form-lead-section">
+    <div className="relative bg-gray-50" id="form-lead-section">
       <div className="absolute inset-0">
         <div className="absolute inset-y-0 left-0 w-1/2 bg-white-50"></div>
       </div>
@@ -69,9 +69,9 @@ export default function LeadForm({
             </div>
             <div className="sm:col-span-2">
               <div className="space-y-4">
-                <div className="text-lg leading-6 font-medium space-y-1">
+                <div className="text-lg leading-6 font-medium space-y-1 text-indigo-600">
                   <h4>{`${userFirstName} ${userLastName}`}</h4>
-                  <p className="text-indigo-600">Real Estate Agent</p>
+                  <p className="text-gray-500">Real Estate Agent</p>
                 </div>
                 <div className="text-lg leading-7">
                   <p className="text-base text-gray-500">{userSmallBio}</p>
@@ -189,7 +189,7 @@ export default function LeadForm({
           </div>
         </div>
 
-        <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:py-24 lg:px-8 xl:pl-12">
+        <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:py-24 lg:px-8 xl:pl-12 rounded-lg">
           <div className="max-w-lg mx-auto lg:max-w-none">
             <form
               onSubmit={handleSubmit}

@@ -1,11 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import Hero from "./Hero";
 import LeadForm from "./LeadForm";
 import ImageGrid from "./ImageGrid";
 import Footer from "./Footer";
 import OtherProperties from "./OtherProperties";
 import PropertyVideo from "./PropertyVideo";
+import TechSpecs from "./TechSpecs";
+import HeroBackground from "./HeroBackground";
 import { FIRST_URL, THUMB_URL } from "./imagesConstants";
 
 export default function PropertyPage({
@@ -14,6 +15,8 @@ export default function PropertyPage({
   bathrooms,
   city,
   province,
+  zipCode,
+  lotSize,
   mainPicture,
   price,
   userEmail,
@@ -36,12 +39,13 @@ export default function PropertyPage({
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
   return (
-    <div className="h-full bg-white-50">
+    <div className="h-full bg-gray-50">
       <Head>
         <title>Property - {title}</title>
         <link rel="icon" href={icon} />
       </Head>
-      <Hero
+
+      <HeroBackground
         title={title}
         mainPicture={mainPicture}
         price={price}
@@ -51,13 +55,18 @@ export default function PropertyPage({
         province={province}
         status={status}
         publishedStatus={publishedStatus}
+        zipCode={zipCode}
+        lotSize={lotSize}
       />
+
       {pictures && <ImageGrid pictures={pictures} />}
 
       {/* Neraby Items
       Floorplan */}
 
       {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
+
+      <TechSpecs />
 
       <LeadForm
         userEmail={userEmail}

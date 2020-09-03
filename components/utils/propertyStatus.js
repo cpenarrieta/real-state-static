@@ -1,6 +1,6 @@
 export const getPropertyBadge = (status, publishedStatus) => {
   if (status === "ACTIVE" && publishedStatus === "PUBLISHED") {
-    return ["available", "teal"];
+    return ["available", "green"];
   }
   if (status === "ACTIVE" && publishedStatus === "DRAFT") {
     return ["draft", "yellow"];
