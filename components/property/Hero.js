@@ -17,7 +17,7 @@ export default function Hero({
 
   return (
     <div id="app">
-      <div className="bg-gray-50 flex">
+      <div className="bg-white-50 flex">
         <div className="px-8 py-12 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
           <div className="xl:max-w-lg xl:ml-auto">
             <img
@@ -34,7 +34,7 @@ export default function Hero({
             <h1 className="mt-2 text-2xl font-bold leading-tight text-brand-blue">
               {`$ ${formatPrice(price)}`}
             </h1>
-            <div className="mt-2 sm:mt-6 flex items-baseline">
+            <div className="mt-6 sm:mt-6 flex items-baseline">
               <span
                 className={`inline-block bg-${badgeColor}-200 text-${badgeColor}-800 text-xs px-2 rounded-full uppercase font-semibold tracking-wide`}
               >
@@ -44,7 +44,7 @@ export default function Hero({
                 {bedrooms} beds &bull; {bathrooms} baths
               </div>
             </div>
-            <div className="mt-2 sm:mt-6">
+            <div className="mt-6 sm:mt-6">
               <a
                 href="#form-lead-section"
                 className="btn bg-brand-blue text-white shadow-lg sm:text-base px-5 py-3 rounded-lg uppercase tracking-wider font-semi-bold"

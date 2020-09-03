@@ -5,6 +5,7 @@ import LeadForm from "./LeadForm";
 import ImageGrid from "./ImageGrid";
 import Footer from "./Footer";
 import OtherProperties from "./OtherProperties";
+import PropertyVideo from "./PropertyVideo";
 import { FIRST_URL, THUMB_URL } from "./imagesConstants";
 
 export default function PropertyPage({
@@ -29,11 +30,13 @@ export default function PropertyPage({
   status,
   publishedStatus,
   userSmallBio,
+  videoUrl,
+  videoType,
 }) {
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
   return (
-    <div className="h-full bg-gray-50">
+    <div className="h-full bg-white-50">
       <Head>
         <title>Property - {title}</title>
         <link rel="icon" href={icon} />
@@ -53,6 +56,8 @@ export default function PropertyPage({
 
       {/* Neraby Items
       Floorplan */}
+
+      {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
 
       <LeadForm
         userEmail={userEmail}
