@@ -26,7 +26,7 @@ export default function HeroBackground({
         backgroundSize: "cover",
       }}
     >
-      <div className="h-56 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"></div>
+      <div className="h-20 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"></div>
       <div className="relative max-w-screen-xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
         <div className="bg-white bg-opacity-75 rounded-md max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 p-10">
           <div>
@@ -50,30 +50,36 @@ export default function HeroBackground({
 
           <div className="mt-8 overflow-hidden">
             <dl className="-mx-8 -mt-8 flex flex-wrap">
-              <div className="flex flex-col px-8 pt-8">
-                <dt className="order-2 text-base leading-6 font-medium text-gray-500">
-                  Bedrooms
-                </dt>
-                <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
-                  {bedrooms}
-                </dd>
-              </div>
-              <div className="flex flex-col px-8 pt-8">
-                <dt className="order-2 text-base leading-6 font-medium text-gray-500">
-                  Bathrooms
-                </dt>
-                <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
-                  {bathrooms}
-                </dd>
-              </div>
-              <div className="flex flex-col px-8 pt-8">
-                <dt className="order-2 text-base leading-6 font-medium text-gray-500">
-                  SQFT
-                </dt>
-                <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
-                  {formatPrice(lotSize)}
-                </dd>
-              </div>
+              {bedrooms && (
+                <div className="flex flex-col px-8 pt-8">
+                  <dt className="order-2 text-base leading-6 font-medium text-gray-500">
+                    Bedrooms
+                  </dt>
+                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                    {bedrooms}
+                  </dd>
+                </div>
+              )}
+              {bathrooms && (
+                <div className="flex flex-col px-8 pt-8">
+                  <dt className="order-2 text-base leading-6 font-medium text-gray-500">
+                    Bathrooms
+                  </dt>
+                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                    {bathrooms}
+                  </dd>
+                </div>
+              )}
+              {lotSize && (
+                <div className="flex flex-col px-8 pt-8">
+                  <dt className="order-2 text-base leading-6 font-medium text-gray-500">
+                    SQFT
+                  </dt>
+                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                    {formatPrice(lotSize)}
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
 

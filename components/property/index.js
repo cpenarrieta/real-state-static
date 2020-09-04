@@ -11,11 +11,13 @@ import { FIRST_URL, THUMB_URL } from "./imagesConstants";
 
 export default function PropertyPage({
   title,
+  address1,
   bedrooms,
   bathrooms,
   city,
   province,
   zipCode,
+  community,
   lotSize,
   mainPicture,
   price,
@@ -35,6 +37,10 @@ export default function PropertyPage({
   userSmallBio,
   videoUrl,
   videoType,
+  description,
+  propertyType,
+  builtYear,
+  grossTaxesLastYear
 }) {
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
@@ -59,14 +65,27 @@ export default function PropertyPage({
         lotSize={lotSize}
       />
 
+      {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
+
       {pictures && <ImageGrid pictures={pictures} />}
 
       {/* Neraby Items
       Floorplan */}
 
-      {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
-
-      <TechSpecs />
+      <TechSpecs
+        address1={address1}
+        bedrooms={bedrooms}
+        bathrooms={bathrooms}
+        city={city}
+        province={province}
+        zipCode={zipCode}
+        lotSize={lotSize}
+        description={description}
+        propertyType={propertyType}
+        builtYear={builtYear}
+        grossTaxesLastYear={grossTaxesLastYear}
+        community={community}
+      />
 
       <LeadForm
         userEmail={userEmail}

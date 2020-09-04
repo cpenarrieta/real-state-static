@@ -1,59 +1,101 @@
 import React from "react";
+import { getPropertyType } from "../utils/propertyType";
+import { formatPrice } from "../utils/price";
 
-export default function TechSpecs() {
+export default function TechSpecs({
+  bedrooms,
+  bathrooms,
+  address1,
+  city,
+  province,
+  zipCode,
+  lotSize,
+  description,
+  propertyType,
+  builtYear,
+  grossTaxesLastYear,
+  community,
+}) {
   return (
     <div className="bg-gray-50 mx-auto px-4 max-w-screen-xl mb-3 sm:px-6 lg:px-8 pb-12 lg:pb-24 lg:pt-12">
       <div className="bg-white shadow overflow-hidden sm:rounded-lg ">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900">
-            Property Information
+            Property Overview
           </h3>
-          <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-            Personal details and application.
-          </p>
         </div>
         <div className="px-4 py-5 sm:px-6">
           <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">
-                Full name
+                Address
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
-                Margot Foster
+                {`${address1}, ${city}, ${province} ${zipCode}`}
               </dd>
             </div>
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">
-                Application for
+                Community
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
-                Backend Developer
+                {community}
               </dd>
             </div>
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">
-                Email address
+                Property Type
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
-                margotfoster@example.com
+                {getPropertyType(propertyType)}
               </dd>
             </div>
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">
-                Salary expectation
+                Built Year
               </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">$120,000</dd>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {builtYear}
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Taxes Last Year
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {formatPrice(grossTaxesLastYear)}
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Lot Size
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {formatPrice(lotSize)} SQFT
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Bedrooms
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {bedrooms}
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Bathrooms
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {bathrooms}
+              </dd>
             </div>
             <div className="sm:col-span-2">
               <dt className="text-sm leading-5 font-medium text-gray-500">
-                About
+                Description
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
-                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim
-                incididunt cillum culpa consequat. Excepteur qui ipsum aliquip
-                consequat sint. Sit id mollit nulla mollit nostrud in ea officia
-                proident. Irure nostrud pariatur mollit ad adipisicing
-                reprehenderit deserunt qui eu.
+                {description}
               </dd>
             </div>
             <div className="sm:col-span-2">
@@ -76,7 +118,7 @@ export default function TechSpecs() {
                         />
                       </svg>
                       <span className="ml-2 flex-1 w-0 truncate">
-                        resume_back_end_developer.pdf
+                        floorplans.pdf
                       </span>
                     </div>
                     <div className="ml-4 flex-shrink-0">
@@ -102,7 +144,7 @@ export default function TechSpecs() {
                         />
                       </svg>
                       <span className="ml-2 flex-1 w-0 truncate">
-                        coverletter_back_end_developer.pdf
+                        mls_details.pdf
                       </span>
                     </div>
                     <div className="ml-4 flex-shrink-0">
