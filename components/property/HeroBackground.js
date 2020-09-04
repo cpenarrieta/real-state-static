@@ -84,13 +84,16 @@ export default function HeroBackground({
           </div>
 
           <div className="rounded-lg shadow-md mt-6">
-            <a
-              href="#form-lead-section"
+            <button
+              onClick={() => {
+                const el = window.document.getElementById('form-lead-section')
+                el.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150"
               aria-describedby="tier-growth"
             >
               Request Info
-            </a>
+            </button>
           </div>
         </div>
       </div>

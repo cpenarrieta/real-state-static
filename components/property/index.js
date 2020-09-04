@@ -40,7 +40,10 @@ export default function PropertyPage({
   description,
   propertyType,
   builtYear,
-  grossTaxesLastYear
+  grossTaxesLastYear,
+  lat,
+  lon,
+  attachments,
 }) {
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
@@ -85,6 +88,9 @@ export default function PropertyPage({
         builtYear={builtYear}
         grossTaxesLastYear={grossTaxesLastYear}
         community={community}
+        lat={lat}
+        lon={lon}
+        attachments={attachments}
       />
 
       <LeadForm

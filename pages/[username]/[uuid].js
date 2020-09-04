@@ -6,7 +6,7 @@ import { FetchContext } from "../../context/FetchContext";
 
 import PropertyPage from "../../components/property";
 
-export default function Property({ error, property, otherProperties }) {
+export default function Property({ error, property, otherProperties, attachments }) {
   const router = useRouter();
   const fetchContext = useContext(FetchContext);
 
@@ -45,6 +45,7 @@ export default function Property({ error, property, otherProperties }) {
     <PropertyPage
       {...property}
       otherProperties={otherProperties}
+      attachments={attachments}
       username={username}
     />
   );
@@ -55,19 +56,18 @@ export async function getStaticProps(ctx) {
   const username = ctx.params.username;
 
   try {
-    const res = await axios(`${process.env.STATIC_API}/property/${uuid}`);
-    let otherProperties = [];
+    const res = await axios(
+      `${process.env.STATIC_API}/property/${username}/${uuid}`
+    );
 
-    try {
-      const otherRes = await axios(
-        `${process.env.STATIC_API}/otherProperties/${username}/${uuid}`
-      );
-      otherProperties = otherRes.data;
-    } catch {
-      otherProperties = [];
-    }
-
-    return { props: { property: res.data, otherProperties }, revalidate: 900 };
+    return {
+      props: {
+        property: res?.data?.property,
+        otherProperties: res?.data?.otherProperties,
+        attachments: res?.data?.attachments,
+      },
+      revalidate: 900,
+    };
   } catch (e) {
     return {
       props: {
