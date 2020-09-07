@@ -1,6 +1,7 @@
 import React from "react";
 import { formatPrice } from "../utils/price";
 import { getPropertyBadge } from "../utils/propertyStatus";
+import { getColorTheme } from "../utils/colorTheme";
 
 export default function HeroBackground({
   title,
@@ -13,8 +14,10 @@ export default function HeroBackground({
   status,
   publishedStatus,
   lotSize,
+  color,
 }) {
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
+  const [colorMain, colorHover] = getColorTheme(color);
 
   return (
     <div
@@ -37,7 +40,9 @@ export default function HeroBackground({
             </span>
           </div>
 
-          <div className="text-2xl h-12 w-12 text-indigo-600 font-bold inline">
+          <div
+            className={`text-2xl h-12 w-12 text-${colorMain} font-bold inline`}
+          >
             {`$ ${formatPrice(price)}`}
           </div>
 
@@ -55,7 +60,9 @@ export default function HeroBackground({
                   <dt className="order-2 text-base leading-6 font-medium text-gray-500">
                     Bedrooms
                   </dt>
-                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                  <dd
+                    className={`order-1 text-2xl leading-8 font-extrabold text-${colorMain} sm:text-3xl sm:leading-9`}
+                  >
                     {bedrooms}
                   </dd>
                 </div>
@@ -65,7 +72,9 @@ export default function HeroBackground({
                   <dt className="order-2 text-base leading-6 font-medium text-gray-500">
                     Bathrooms
                   </dt>
-                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                  <dd
+                    className={`order-1 text-2xl leading-8 font-extrabold text-${colorMain} sm:text-3xl sm:leading-9`}
+                  >
                     {bathrooms}
                   </dd>
                 </div>
@@ -75,7 +84,9 @@ export default function HeroBackground({
                   <dt className="order-2 text-base leading-6 font-medium text-gray-500">
                     SQFT
                   </dt>
-                  <dd className="order-1 text-2xl leading-8 font-extrabold text-indigo-600 sm:text-3xl sm:leading-9">
+                  <dd
+                    className={`order-1 text-2xl leading-8 font-extrabold text-${colorMain} sm:text-3xl sm:leading-9`}
+                  >
                     {formatPrice(lotSize)}
                   </dd>
                 </div>
@@ -86,10 +97,10 @@ export default function HeroBackground({
           <div className="rounded-lg shadow-md mt-6">
             <button
               onClick={() => {
-                const el = window.document.getElementById('form-lead-section')
-                el.scrollIntoView({ behavior: 'smooth' })
+                const el = window.document.getElementById("form-lead-section");
+                el.scrollIntoView({ behavior: "smooth" });
               }}
-              className="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition ease-in-out duration-150"
+              className={`block w-full text-center rounded-lg border border-transparent bg-${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
               aria-describedby="tier-growth"
             >
               Request Info

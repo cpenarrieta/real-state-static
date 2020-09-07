@@ -1,6 +1,7 @@
 import React from "react";
 import { getPropertyType } from "../utils/propertyType";
 import { formatPrice } from "../utils/price";
+import { getColorTheme } from "../utils/colorTheme";
 
 export default function TechSpecs({
   bedrooms,
@@ -18,9 +19,12 @@ export default function TechSpecs({
   lat,
   lon,
   attachments,
+  color
 }) {
+  const [colorMain, colorSec] = getColorTheme(color);
+
   return (
-    <div className="bg-gray-50 mx-auto px-4 max-w-screen-xl mb-3 sm:px-6 lg:px-8 pb-12 lg:pb-24 lg:pt-12">
+    <div className="mx-auto px-4 max-w-screen-xl mb-3 sm:px-6 lg:px-8 pb-12 lg:pb-24 lg:pt-12">
       <div className="bg-white shadow overflow-hidden sm:rounded-lg ">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -153,7 +157,7 @@ export default function TechSpecs({
                             <a
                               href={attachment.url}
                               target="_blank"
-                              className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out"
+                              className={`font-medium text-${colorMain} hover:text-${colorSec} transition duration-150 ease-in-out`}
                             >
                               Download
                             </a>

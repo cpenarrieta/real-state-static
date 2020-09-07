@@ -44,6 +44,7 @@ export default function PropertyPage({
   lat,
   lon,
   attachments,
+  color,
 }) {
   const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
 
@@ -66,6 +67,7 @@ export default function PropertyPage({
         publishedStatus={publishedStatus}
         zipCode={zipCode}
         lotSize={lotSize}
+        color={color}
       />
 
       {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
@@ -91,6 +93,7 @@ export default function PropertyPage({
         lat={lat}
         lon={lon}
         attachments={attachments}
+        color={color}
       />
 
       <LeadForm
@@ -104,16 +107,18 @@ export default function PropertyPage({
         userLastName={userLastName}
         userPicture={userPicture}
         userSmallBio={userSmallBio}
+        color={color}
       />
 
       {otherProperties && otherProperties.length > 0 && (
         <OtherProperties
           otherProperties={otherProperties}
           userFirstName={userFirstName}
+          color={color}
         />
       )}
 
-      <Footer />
+      <Footer color={color} />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../utils/price";
 import { FIRST_URL, CARD_URL } from "./imagesConstants";
 import Link from "next/link";
+import { getColorTheme } from "../utils/colorTheme";
 
 export default function DestinationCard({
   imageUrl,
@@ -13,8 +14,10 @@ export default function DestinationCard({
   bathrooms,
   uuid,
   username,
+  color,
 }) {
   const cardImage = imageUrl.replace(FIRST_URL, CARD_URL);
+  const [_, colorSec] = getColorTheme(color);
 
   return (
     <Link href={`/${username}/${uuid}`}>
@@ -28,7 +31,7 @@ export default function DestinationCard({
           <div className="px-6 py-4">
             <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
             <h3 className="text-sm font-semibold text-gray-500">{city}</h3>
-            <p className="text-gray-600 mt-2 text-indigo-400">
+            <p className={`text-gray-600 mt-2 text-${colorSec}`}>
               $ {formatPrice(price)}
             </p>
             <div className="mt-2">

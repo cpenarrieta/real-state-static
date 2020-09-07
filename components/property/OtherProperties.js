@@ -2,7 +2,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import DestinationCard from "./DestinationCard";
 
-export default function OtherProperties({ otherProperties, userFirstName }) {
+export default function OtherProperties({
+  otherProperties,
+  userFirstName,
+  color,
+}) {
   const router = useRouter();
   const { username } = router.query;
 
@@ -30,6 +34,7 @@ export default function OtherProperties({ otherProperties, userFirstName }) {
                       uuid={other.uuid}
                       username={username}
                       imageAlt="other property"
+                      color={color}
                     />
                   </div>
                 </li>

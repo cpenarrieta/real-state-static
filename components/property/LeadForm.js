@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { FetchContext } from "../../context/FetchContext";
 import { useRouter } from "next/router";
 import Alert from "../Alert";
+import { getColorTheme } from "../utils/colorTheme";
 
 function formatPhoneNumber(phoneNumberString) {
   var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
@@ -23,6 +24,7 @@ export default function LeadForm({
   userLastName,
   userPicture,
   userSmallBio,
+  color,
 }) {
   const router = useRouter();
   const fetchContext = useContext(FetchContext);
@@ -31,6 +33,7 @@ export default function LeadForm({
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [colorMain, colorSec] = getColorTheme(color);
 
   const showSuccessAlert = successMessage && !errorMessage;
   const buttonDisabled = !email || !name || !phone || showSuccessAlert;
@@ -69,7 +72,9 @@ export default function LeadForm({
             </div>
             <div className="sm:col-span-2">
               <div className="space-y-4">
-                <div className="text-lg leading-6 font-medium space-y-1 text-indigo-600">
+                <div
+                  className={`text-lg leading-6 font-medium space-y-1 text-${colorMain}`}
+                >
                   <h4>{`${userFirstName} ${userLastName}`}</h4>
                   <p className="text-gray-500">Real Estate Agent</p>
                 </div>
@@ -91,7 +96,7 @@ export default function LeadForm({
                     <dt className="sr-only">Phone number</dt>
                     <dd className="flex">
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-indigo-500"
+                        className={`flex-shrink-0 h-6 w-6 text-${colorMain}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -103,7 +108,7 @@ export default function LeadForm({
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      <span className="ml-3 text-indigo-500">
+                      <span className={`ml-3 text-${colorMain}`}>
                         {formatPhoneNumber(userPhone)}
                       </span>
                     </dd>
@@ -112,7 +117,7 @@ export default function LeadForm({
                     <dt className="sr-only">Email</dt>
                     <dd className="flex">
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-indigo-500"
+                        className={`flex-shrink-0 h-6 w-6 text-${colorMain}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -124,7 +129,9 @@ export default function LeadForm({
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      <span className="ml-3 text-indigo-500">{userEmail}</span>
+                      <span className={`ml-3 text-${colorMain}`}>
+                        {userEmail}
+                      </span>
                     </dd>
                   </div>
                 </dl>
@@ -137,7 +144,7 @@ export default function LeadForm({
                     >
                       <span className="sr-only">Instagram</span>
                       <svg
-                        className="w-5 h-5"
+                        className={`w-5 h-5 hover:text-${colorSec}`}
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -156,7 +163,7 @@ export default function LeadForm({
                     >
                       <span className="sr-only">Twitter</span>
                       <svg
-                        className="w-5 h-5"
+                        className={`w-5 h-5 hover:text-${colorSec}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -171,7 +178,7 @@ export default function LeadForm({
                     >
                       <span className="sr-only">LinkedIn</span>
                       <svg
-                        className="w-5 h-5"
+                        className={`w-5 h-5 hover:text-${colorSec}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -248,10 +255,10 @@ export default function LeadForm({
                     type="submit"
                     disabled={buttonDisabled}
                     className={`inline-flex justify-center py-3 px-6 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-${
-                      buttonDisabled ? "gray" : "indigo"
-                    }-600 ${
-                      buttonDisabled ? "" : "hover:bg-indigo-700"
-                    } focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out`}
+                      buttonDisabled ? "gray-600" : colorMain
+                    } ${
+                      buttonDisabled ? "" : `hover:bg-${colorMain}`
+                    } focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} active:bg-${colorMain} transition duration-150 ease-in-out`}
                   >
                     Submit
                   </button>
