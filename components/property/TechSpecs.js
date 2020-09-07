@@ -70,7 +70,7 @@ export default function TechSpecs({
                 Taxes Last Year
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {formatPrice(grossTaxesLastYear)}
+                ${formatPrice(grossTaxesLastYear)}
               </dd>
             </div>
             <div className="sm:col-span-1">
