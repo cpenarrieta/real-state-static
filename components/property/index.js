@@ -46,7 +46,7 @@ export default function PropertyPage({
   attachments,
   color,
 }) {
-  const icon = mainPicture.replace(FIRST_URL, THUMB_URL);
+  const icon = mainPicture && mainPicture.replace(FIRST_URL, THUMB_URL);
 
   return (
     <div className="h-full bg-gray-50">

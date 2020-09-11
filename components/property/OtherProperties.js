@@ -25,7 +25,7 @@ export default function OtherProperties({
                 <li key={`${key}-other-${other.title}`}>
                   <div className="space-y-4">
                     <DestinationCard
-                      imageUrl={other.mainPicture}
+                      imageUrl={other.mainPictureLowRes || ""}
                       title={other.title}
                       city={other.city}
                       price={other.price}

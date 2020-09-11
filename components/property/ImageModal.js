@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { Transition } from "@tailwindui/react";
+import { FIRST_URL, HERO_URL } from "./imagesConstants";
 
 const LEFT = 37;
 const RIGHT = 39;
@@ -49,6 +50,8 @@ export default function ImageModal({
       window.removeEventListener("keydown", handleUserKeyPress);
     };
   }, [handleUserKeyPress]);
+
+  const mainPictureLowRes = pictures[imageKey].replace(FIRST_URL, HERO_URL);
 
   return (
     <div
@@ -167,7 +170,7 @@ export default function ImageModal({
 
                 <img
                   className="object-cover h-full w-full shadow-lg rounded-lg"
-                  src={pictures[imageKey]}
+                  src={mainPictureLowRes}
                   alt={`alt`}
                 />
               </div>

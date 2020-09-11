@@ -43,7 +43,7 @@ handler.get(async (req, res) => {
     // OTHER PROPERTIES FROM USER
     try {
       const dataOther = await req.db.query(
-        `Select title, uuid, bedrooms, bathrooms, price, "mainPicture", currency, status, city
+        `Select title, uuid, bedrooms, bathrooms, price, "mainPictureLowRes", currency, status, city
         from public.property
         where username = $1 and 
           uuid <> $2 and 

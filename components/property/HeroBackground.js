@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../utils/price";
 import { getPropertyBadge } from "../utils/propertyStatus";
 import { getColorTheme } from "../utils/colorTheme";
+import { FIRST_URL, HERO_URL } from "./imagesConstants";
 
 export default function HeroBackground({
   title,
@@ -19,11 +20,14 @@ export default function HeroBackground({
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
   const [colorMain, colorHover] = getColorTheme(color);
 
+  // set default background if there is no image
+  const mainPictureLowRes = mainPicture && mainPicture.replace(FIRST_URL, HERO_URL);
+
   return (
     <div
       className="h-screen"
       style={{
-        backgroundImage: `url("${mainPicture}")`,
+        backgroundImage: `url("${mainPictureLowRes}")`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
