@@ -68,7 +68,7 @@ handler.get(async (req, res) => {
       const dataAttachments = await req.db.query(
         `Select *
         from public.attachments
-        where "propertyId" = $1
+        where "propertyId" = $1 and active=true
         ORDER BY "updatedAt" desc`,
         [property.id]
       );
