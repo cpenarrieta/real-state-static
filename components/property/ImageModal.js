@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from "react";
 import { Transition } from "@tailwindui/react";
-import { FIRST_URL, HERO_URL } from "./imagesConstants";
 
 const LEFT = 37;
 const RIGHT = 39;
@@ -11,12 +10,12 @@ export default function ImageModal({
   setShowModal,
   imageKey,
   setImageKey,
-  pictures,
+  images,
 }) {
   const goLeft = () => {
     setImageKey((k) => {
       if (k === 0) {
-        return pictures.length - 1;
+        return images.length - 1;
       }
       return k - 1;
     });
@@ -24,7 +23,7 @@ export default function ImageModal({
 
   const goRight = () => {
     setImageKey((k) => {
-      if (k === pictures.length - 1) {
+      if (k === images.length - 1) {
         return 0;
       }
       return k + 1;
@@ -51,7 +50,7 @@ export default function ImageModal({
     };
   }, [handleUserKeyPress]);
 
-  const mainPictureLowRes = pictures[imageKey].replace(FIRST_URL, HERO_URL);
+  const image = images[imageKey]?.url;
 
   return (
     <div
@@ -170,7 +169,7 @@ export default function ImageModal({
 
                 <img
                   className="object-cover h-full w-full shadow-lg rounded-lg"
-                  src={mainPictureLowRes}
+                  src={image}
                   alt={`alt`}
                 />
               </div>

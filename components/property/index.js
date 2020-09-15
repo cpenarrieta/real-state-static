@@ -27,7 +27,7 @@ export default function PropertyPage({
   userCity,
   userProvince,
   userZipcode,
-  pictures,
+  images,
   otherProperties,
   userFirstName,
   userLastName,
@@ -72,7 +72,7 @@ export default function PropertyPage({
 
       {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
 
-      {pictures && <ImageGrid pictures={pictures} />}
+      {images && <ImageGrid images={images} />}
 
       {/* Neraby Items
       Floorplan */}

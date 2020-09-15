@@ -6,7 +6,13 @@ import { FetchContext } from "../../context/FetchContext";
 
 import PropertyPage from "../../components/property";
 
-export default function Property({ error, property, otherProperties, attachments }) {
+export default function Property({
+  error,
+  property,
+  otherProperties,
+  attachments,
+  images,
+}) {
   const router = useRouter();
   const fetchContext = useContext(FetchContext);
 
@@ -46,6 +52,7 @@ export default function Property({ error, property, otherProperties, attachments
       {...property}
       otherProperties={otherProperties}
       attachments={attachments}
+      images={images}
       username={username}
     />
   );
@@ -65,6 +72,7 @@ export async function getStaticProps(ctx) {
         property: res?.data?.property,
         otherProperties: res?.data?.otherProperties,
         attachments: res?.data?.attachments,
+        images: res?.data?.images,
       },
       revalidate: 900,
     };

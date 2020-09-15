@@ -12,6 +12,7 @@ handler.get(async (req, res) => {
   let property = null;
   let otherProperties = [];
   let attachments = [];
+  let images = [];
 
   try {
     const data = await req.db.query(
@@ -82,10 +83,29 @@ handler.get(async (req, res) => {
       attachments = [];
     }
 
+    // IMAGES
+    try {
+      const dataImages = await req.db.query(
+        `Select id, url, "urlLowRes"
+         from public.images
+         where "propertyId" = $1 and active=true`,
+        [property.id]
+      );
+
+      if (dataImages.rows.length <= 0) {
+        images = [];
+      }
+
+      images = dataImages.rows;
+    } catch (err) {
+      images = [];
+    }
+
     res.json({
       property,
       otherProperties,
       attachments,
+      images,
     });
   } catch (err) {
     res.status(500).json({ message: "Error getting Property" });
