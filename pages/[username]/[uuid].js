@@ -3,7 +3,6 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FetchContext } from "../../context/FetchContext";
-
 import PropertyPage from "../../components/property";
 
 export default function Property({
