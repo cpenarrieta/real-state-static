@@ -45,6 +45,8 @@ export default function PropertyPage({
   lon,
   attachments,
   color,
+  hidePrice = false,
+  strata = false,
 }) {
   const icon = mainPicture && mainPicture.replace(FIRST_URL, THUMB_URL);
 
@@ -68,14 +70,12 @@ export default function PropertyPage({
         zipCode={zipCode}
         lotSize={lotSize}
         color={color}
+        hidePrice={hidePrice}
       />
 
       {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}
 
       {images && <ImageGrid images={images} />}
-
-      {/* Neraby Items
-      Floorplan */}
 
       <TechSpecs
         address1={address1}
@@ -94,6 +94,7 @@ export default function PropertyPage({
         lon={lon}
         attachments={attachments}
         color={color}
+        strata={strata}
       />
 
       <LeadForm

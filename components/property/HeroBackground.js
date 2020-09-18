@@ -16,12 +16,14 @@ export default function HeroBackground({
   publishedStatus,
   lotSize,
   color,
+  hidePrice,
 }) {
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
   const [colorMain, colorHover] = getColorTheme(color);
 
   // set default background if there is no image
-  const mainPictureLowRes = mainPicture && mainPicture.replace(FIRST_URL, HERO_URL);
+  const mainPictureLowRes =
+    mainPicture && mainPicture.replace(FIRST_URL, HERO_URL);
 
   return (
     <div
@@ -44,11 +46,13 @@ export default function HeroBackground({
             </span>
           </div>
 
-          <div
-            className={`text-2xl h-12 w-12 text-${colorMain} font-bold inline`}
-          >
-            {`$ ${formatPrice(price)}`}
-          </div>
+          {price && !hidePrice && (
+            <div
+              className={`text-2xl h-12 w-12 text-${colorMain} font-bold inline`}
+            >
+              {`$ ${formatPrice(price)}`}
+            </div>
+          )}
 
           <h2 className="mt-6 text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10">
             {title}

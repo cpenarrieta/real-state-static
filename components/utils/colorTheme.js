@@ -24,7 +24,7 @@ export const getColorTheme = (color) => {
     return ["purple-700", "purple-500"];
   }
   if (color === "pink") {
-    return ["pink-800", "pink-500"];
+    return ["pink-700", "pink-500"];
   }
   return ["indigo-500", "indigo-400"];
 };

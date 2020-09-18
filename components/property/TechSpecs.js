@@ -19,7 +19,8 @@ export default function TechSpecs({
   lat,
   lon,
   attachments,
-  color
+  color,
+  strata,
 }) {
   const [colorMain, colorSec] = getColorTheme(color);
 
@@ -95,6 +96,14 @@ export default function TechSpecs({
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900">
                 {bathrooms}
+              </dd>
+            </div>
+            <div className="sm:col-span-1">
+              <dt className="text-sm leading-5 font-medium text-gray-500">
+                Strata
+              </dt>
+              <dd className="mt-1 text-sm leading-5 text-gray-900">
+                {strata ? 'Yes' : 'Non Strata'}
               </dd>
             </div>
             <div className="sm:col-span-2">
