@@ -27,7 +27,7 @@ handler.post(async (req, res) => {
     const propertyId = propertyData.rows[0].id;
 
     let visitorId = getVisitorCookie(req);
-    console.log(visitorId);
+
     if (!visitorId) {
       visitorId = uuidv4();
     }
@@ -39,7 +39,8 @@ handler.post(async (req, res) => {
 
     if (leadData.rows.length <= 0) {
       const data = await req.db.query(
-        `INSERT INTO lead(email, "propertyId", phone, name, "visitorId") VALUES($1, $2, $3, $4, $5) RETURNING "propertyId", "visitorId"`,
+        `INSERT INTO lead(email, "propertyId", phone, name, "visitorId", "leadStatus") 
+         VALUES($1, $2, $3, $4, $5, 'PENDING') RETURNING "propertyId", "visitorId"`,
         [email, propertyId, phone, name, visitorId]
       );
 
