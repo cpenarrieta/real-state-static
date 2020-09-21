@@ -33,8 +33,8 @@ handler.post(async (req, res) => {
     }
 
     const leadData = await req.db.query(
-      `SELECT * FROM public.lead WHERE "visitorId" = $1`,
-      [visitorId]
+      `SELECT * FROM public.lead WHERE "visitorId" = $1 and "propertyId" = $2`,
+      [visitorId, propertyId]
     );
 
     if (leadData.rows.length <= 0) {

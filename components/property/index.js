@@ -7,7 +7,6 @@ import OtherProperties from "./OtherProperties";
 import PropertyVideo from "./PropertyVideo";
 import TechSpecs from "./TechSpecs";
 import HeroBackground from "./HeroBackground";
-import { FIRST_URL, THUMB_URL } from "./imagesConstants";
 
 export default function PropertyPage({
   title,
@@ -48,13 +47,10 @@ export default function PropertyPage({
   hidePrice = false,
   strata = false,
 }) {
-  const icon = mainPicture && mainPicture.replace(FIRST_URL, THUMB_URL);
-
   return (
     <div className="h-full bg-gray-50">
       <Head>
         <title>Property - {title}</title>
-        <link rel="icon" href={icon} />
       </Head>
 
       <HeroBackground
