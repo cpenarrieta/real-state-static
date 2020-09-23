@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import PropertyPage from "../../components/property";
+import { PropertyPage } from "@cpenarrieta/real-state-property-components";
 import Head from "next/head";
 
 export default function Property({
@@ -60,6 +60,8 @@ export default function Property({
         attachments={attachments}
         images={images}
         username={username}
+        visitorSource="prod"
+        mapKey={process.env.NEXT_PUBLIC_MAPS_KEY}
       />
     </>
   );
