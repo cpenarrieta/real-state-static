@@ -1,9 +1,9 @@
-import { useEffect, useContext } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FetchContext } from "../../context/FetchContext";
 import PropertyPage from "../../components/property";
+import Head from "next/head";
 
 export default function Property({
   error,
@@ -13,13 +13,12 @@ export default function Property({
   images,
 }) {
   const router = useRouter();
-  const fetchContext = useContext(FetchContext);
 
   useEffect(() => {
     async function visitorFunction() {
       const { uuid } = router.query;
       try {
-        await fetchContext.staticAxios.post(`/visitor`, {
+        await axios.post("/api/visitor", {
           uuid,
         });
       } catch (e) {
@@ -46,14 +45,23 @@ export default function Property({
     );
   }
 
+  const headComp = (
+    <Head>
+      <title>Property - {property.title}</title>
+    </Head>
+  );
+
   return (
-    <PropertyPage
-      {...property}
-      otherProperties={otherProperties}
-      attachments={attachments}
-      images={images}
-      username={username}
-    />
+    <>
+      {headComp}
+      <PropertyPage
+        {...property}
+        otherProperties={otherProperties}
+        attachments={attachments}
+        images={images}
+        username={username}
+      />
+    </>
   );
 }
 

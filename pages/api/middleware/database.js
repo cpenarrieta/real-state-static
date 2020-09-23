@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import nextConnect from 'next-connect';
+import nextConnect from "next-connect";
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -9,8 +9,8 @@ const pool = new Pool({
 });
 
 async function database(req, res, next) {
-  req.db = {}
-  req.db.query = (text, params) => pool.query(text, params)
+  req.db = {};
+  req.db.query = (text, params) => pool.query(text, params);
 
   return next();
 }
@@ -20,4 +20,3 @@ const middleware = nextConnect();
 middleware.use(database);
 
 export default middleware;
-
