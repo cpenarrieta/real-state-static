@@ -1,16 +1,24 @@
 import Head from "next/head";
+import Hero from "../components/landing/Hero";
+import Features from "../components/landing/Features";
+import Pricing from "../components/landing/Pricing";
+import Faq from "../components/landing/Faq";
+import Footer from "../components/landing/Footer";
 
-export default function Home() {
+export default function Home({ lifetime, oneYear }) {
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>Real Estate App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-5xl text-center text-accent-1">
-        Real Estate App - Index Page
-      </h1>
+      <Hero />
+      <Features />
+      <Pricing lifetime={lifetime} oneYear={oneYear} />
+      <Faq />
+      <Footer />
+
       <div className="hidden text-red-100 bg-red-100">red</div>
       <div className="hidden text-red-200 bg-red-200">red</div>
       <div className="hidden text-red-300 bg-red-300">red</div>
@@ -92,4 +100,25 @@ export default function Home() {
       <div className="hidden text-pink-900 bg-pink-900">pink</div>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const fetchProducts = async (country) => {
+    return fetch(`${process.env.GATEWAY_API}/config/${country}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  };
+
+  // TODO how to get the country
+  const { lifetime, oneYear } = await fetchProducts("CA");
+
+  return {
+    props: {
+      lifetime,
+      oneYear,
+    },
+  };
 }

@@ -1,5 +1,5 @@
-import "../styles/index.css";
 import '@cpenarrieta/real-state-property-components/dist/tailwind-output.css';
+import "../styles/index.css";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
