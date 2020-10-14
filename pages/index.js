@@ -5,7 +5,7 @@ import Pricing from "../components/landing/Pricing";
 import Faq from "../components/landing/Faq";
 import Footer from "../components/landing/Footer";
 
-export default function Home({ lifetime, oneYear }) {
+export default function Home({ lifetime }) {
   return (
     <div>
       <Head>
@@ -15,7 +15,7 @@ export default function Home({ lifetime, oneYear }) {
 
       <Hero />
       <Features />
-      <Pricing lifetime={lifetime} oneYear={oneYear} />
+      <Pricing lifetime={lifetime} />
       <Faq />
       <Footer />
 
@@ -113,12 +113,11 @@ export async function getStaticProps(context) {
   };
 
   // TODO how to get the country
-  const { lifetime, oneYear } = await fetchProducts("CA");
+  const { lifetime } = await fetchProducts("CA");
 
   return {
     props: {
       lifetime,
-      oneYear,
     },
   };
 }
