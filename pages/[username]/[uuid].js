@@ -4,6 +4,18 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { PropertyPage } from "@cpenarrieta/real-state-property-components";
 import Head from "next/head";
+import { parseISO } from "date-fns";
+
+const formatData = (propertyOpenHouse) => {
+  return propertyOpenHouse?.map((o) => {
+    return {
+      id: o.id,
+      date: parseISO(o.date.substring(0, o.date.length - 1)),
+      start: parseISO(`2014-02-11T${o.timeStart}`),
+      end: parseISO(`2014-02-11T${o.timeEnd}`),
+    };
+  });
+};
 
 export default function Property({
   error,
@@ -11,6 +23,7 @@ export default function Property({
   otherProperties,
   attachments,
   images,
+  openHouse,
 }) {
   const router = useRouter();
 
@@ -51,6 +64,8 @@ export default function Property({
     </Head>
   );
 
+  const openHouseData = formatData(openHouse || []);
+
   return (
     <>
       {headComp}
@@ -58,6 +73,7 @@ export default function Property({
         {...property}
         otherProperties={otherProperties}
         attachments={attachments}
+        openHouse={openHouseData}
         images={images}
         username={username}
         visitorSource="prod"
@@ -81,6 +97,7 @@ export async function getStaticProps(ctx) {
         property: res?.data?.property,
         otherProperties: res?.data?.otherProperties,
         attachments: res?.data?.attachments,
+        openHouse: res?.data?.openHouse,
         images: res?.data?.images,
       },
       revalidate: 900,
