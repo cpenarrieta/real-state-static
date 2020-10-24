@@ -35,9 +35,13 @@ export default function Agent({ error, firstName, lastName, phone }) {
 export async function getStaticProps(ctx) {
   const username = ctx.params.username;
 
-  const res = await fetch(`${process.env.STATIC_API}/user/${username}`);
+  const res = await fetch(
+    `${process.env.GATEWAY_API}/home_static/user/${username}`
+  );
+
   if (res.status >= 200 && res.status < 300) {
     const json = await res.json();
+
     return { props: json, revalidate: 900 };
   }
 
@@ -50,7 +54,7 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.STATIC_API}/users`);
+  const res = await fetch(`${process.env.GATEWAY_API}/home_static/users`);
   const json = await res.json();
 
   const paths = json.map((a) => {

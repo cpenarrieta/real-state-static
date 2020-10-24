@@ -10,7 +10,7 @@ const formatData = (propertyOpenHouse) => {
   return propertyOpenHouse?.map((o) => {
     return {
       id: o.id,
-      date: parseISO(o.date.substring(0, o.date.length - 1)),
+      date: parseISO(o.date),
       start: parseISO(`2014-02-11T${o.timeStart}`),
       end: parseISO(`2014-02-11T${o.timeEnd}`),
     };
@@ -89,7 +89,7 @@ export async function getStaticProps(ctx) {
 
   try {
     const res = await axios(
-      `${process.env.STATIC_API}/property/${username}/${uuid}`
+      `${process.env.GATEWAY_API}/home_static/property/${username}/${uuid}`
     );
 
     return {
@@ -113,7 +113,13 @@ export async function getStaticProps(ctx) {
 }
 
 export async function getStaticPaths() {
-  const res = await axios(`${process.env.STATIC_API}/properties`);
+  const res = await axios(`${process.env.GATEWAY_API}/home_static/properties`);
+
+  // if (!res.data) {
+  //   return {
+  //     params: {},
+  //   };
+  // }
 
   const paths = res.data.map((property) => {
     return {
