@@ -1,2 +1,2 @@
 RealtorApp Static site
-Static site for property websites
+Static site for property websites.
