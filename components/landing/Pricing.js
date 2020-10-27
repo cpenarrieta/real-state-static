@@ -10,7 +10,13 @@ export default function Pricing({ oneYear, lifetime }) {
               Simple no-tricks pricing
             </h2>
             <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
-              No Subscription, No contracts
+              No Subscription
+            </h2>
+            <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
+              No contracts
+            </h2>
+            <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
+              Only pay when you are ready to go live
             </h2>
             <p className="mt-4 text-xl leading-7 text-gray-600">
               If you're not satisfied, contact us within the first 30 days and
@@ -181,12 +187,17 @@ export default function Pricing({ oneYear, lifetime }) {
                       {lifetime.currency}
                     </span>
                   </div>
-                  <div className="text-lg leading-6 font-medium text-gray-700">Per Property</div>
+                  <div className="text-lg leading-6 font-medium text-gray-700">
+                    Per Property
+                  </div>
                   <div className="mt-6">
                     <div className="rounded-md shadow">
-                      <button className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                      <a
+                        href="https://app.realtorapp.co"
+                        className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                      >
                         Create Account
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -353,7 +364,9 @@ export default function Pricing({ oneYear, lifetime }) {
                       {oneYear.currency}
                     </span>
                   </div>
-                  <div className="text-lg leading-6 font-medium text-gray-700">Per Property</div>
+                  <div className="text-lg leading-6 font-medium text-gray-700">
+                    Per Property
+                  </div>
                   <div className="mt-6">
                     <div className="rounded-md shadow">
                       <button className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
