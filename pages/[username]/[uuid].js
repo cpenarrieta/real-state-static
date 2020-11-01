@@ -61,6 +61,7 @@ export default function Property({
   const headComp = (
     <Head>
       <title>Property - {property.title}</title>
+      <link rel="icon" href="/logo_icon.ico" />
     </Head>
   );
 
@@ -114,12 +115,6 @@ export async function getStaticProps(ctx) {
 
 export async function getStaticPaths() {
   const res = await axios(`${process.env.GATEWAY_API}/home_static/properties`);
-
-  // if (!res.data) {
-  //   return {
-  //     params: {},
-  //   };
-  // }
 
   const paths = res.data.map((property) => {
     return {

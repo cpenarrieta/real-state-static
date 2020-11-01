@@ -7,16 +7,16 @@ import Footer from "../components/landing/Footer";
 
 export default function Home({ lifetime }) {
   return (
-    <div>
+    <div className="bg-logoPink">
       <Head>
-        <title>Real Estate App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Realtor App</title>
+        <link rel="icon" href="/logo_icon.ico" />
       </Head>
 
       <Hero />
       <Features />
-      <Pricing lifetime={lifetime} />
       <Faq />
+      <Pricing lifetime={lifetime} />
       <Footer />
 
       <div className="hidden text-red-100 bg-red-100">red</div>

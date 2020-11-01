@@ -6,17 +6,17 @@ export default function Pricing({ oneYear, lifetime }) {
       <div className="pt-12 sm:pt-16 lg:pt-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl leading-9 font-extrabold text-gray-900 sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
+            <h2 className="text-3xl leading-9 font-extrabold text-logoFont sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
               Simple no-tricks pricing
             </h2>
-            <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
+            <h2 className="mt-1 text-xl leading-9 font-extrabold text-logoRed sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
               No Subscription
             </h2>
-            <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
+            <h2 className="mt-1 text-xl leading-9 font-extrabold text-logoRed sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
               No contracts
             </h2>
-            <h2 className="mt-1 text-xl leading-9 font-extrabold text-indigo-800 sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
-              Only pay when you are ready to go live
+            <h2 className="mt-1 text-xl leading-9 font-extrabold text-logoRed sm:text-2xl sm:leading-10 lg:text-3xl lg:leading-none">
+              Only pay when you're ready to go live
             </h2>
             <p className="mt-4 text-xl leading-7 text-gray-600">
               If you're not satisfied, contact us within the first 30 days and
@@ -27,12 +27,12 @@ export default function Pricing({ oneYear, lifetime }) {
       </div>
       <div className="mt-8 pb-16 sm:mt-12 sm:pb-20 lg:pb-28">
         <div className="relative">
-          <div className="absolute inset-0 h-1/2 bg-gray-100"></div>
+          <div className="absolute inset-0 h-1/2 bg-gray-50"></div>
           {lifetime && (
             <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
                 <div className="bg-white px-6 py-8 lg:p-12">
-                  <h3 className="text-2xl leading-8 font-extrabold text-gray-900 sm:text-3xl sm:leading-9">
+                  <h3 className="text-2xl leading-8 font-extrabold text-logoFont sm:text-3xl sm:leading-9">
                     Lifetime
                   </h3>
                   <p className="mt-6 text-base leading-6 text-gray-500">
@@ -42,7 +42,7 @@ export default function Pricing({ oneYear, lifetime }) {
                   </p>
                   <div className="mt-8">
                     <div className="flex items-center">
-                      <h4 className="flex-shrink-0 pr-4 bg-white text-sm leading-5 tracking-wider font-semibold uppercase text-indigo-600">
+                      <h4 className="flex-shrink-0 pr-4 bg-white text-sm leading-5 tracking-wider font-semibold uppercase text-logoRed">
                         What's included
                       </h4>
                       <div className="flex-1 border-t-2 border-gray-200"></div>
@@ -62,7 +62,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Website for your Property
                         </p>
                       </li>
@@ -80,7 +80,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           30 High quality pictures
                         </p>
                       </li>
@@ -98,7 +98,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Leads management
                         </p>
                       </li>
@@ -116,7 +116,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Analytics
                         </p>
                       </li>
@@ -134,7 +134,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           5 PDF Attachments
                         </p>
                       </li>
@@ -152,7 +152,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           1 Video from Youtube or Vimeo
                         </p>
                       </li>
@@ -170,7 +170,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Open House Schedule
                         </p>
                       </li>
@@ -178,23 +178,23 @@ export default function Pricing({ oneYear, lifetime }) {
                   </div>
                 </div>
                 <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-                  <p className="text-lg leading-6 font-medium text-gray-900">
+                  <p className="text-lg leading-6 font-medium text-logoFont">
                     Pay once, own it forever
                   </p>
-                  <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-gray-900">
+                  <div className="mt-4 flex items-center justify-center text-5xl leading-none font-extrabold text-logoFont">
                     <span>${lifetime.amount}</span>
                     <span className="ml-3 text-xl leading-7 font-medium text-gray-500 uppercase">
                       {lifetime.currency}
                     </span>
                   </div>
-                  <div className="text-lg leading-6 font-medium text-gray-700">
+                  <div className="text-lg leading-6 font-medium text-logoFont">
                     Per Property
                   </div>
                   <div className="mt-6">
                     <div className="rounded-md shadow">
                       <a
                         href="https://app.realtorapp.co"
-                        className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
+                        className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-logoRed hover:bg-logoRed-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
                       >
                         Create Account
                       </a>
@@ -239,7 +239,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Website
                         </p>
                       </li>
@@ -257,7 +257,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           30 High quality pictures
                         </p>
                       </li>
@@ -275,7 +275,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Leads management
                         </p>
                       </li>
@@ -293,7 +293,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Analytics
                         </p>
                       </li>
@@ -311,7 +311,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           5 PDF Attachments
                         </p>
                       </li>
@@ -329,7 +329,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           1 Video from Youtube or Vimeo
                         </p>
                       </li>
@@ -347,7 +347,7 @@ export default function Pricing({ oneYear, lifetime }) {
                             />
                           </svg>
                         </div>
-                        <p className="ml-3 text-sm leading-5 text-gray-700">
+                        <p className="ml-3 text-sm leading-5 text-logoFont">
                           Open House Schedule
                         </p>
                       </li>
@@ -369,7 +369,7 @@ export default function Pricing({ oneYear, lifetime }) {
                   </div>
                   <div className="mt-6">
                     <div className="rounded-md shadow">
-                      <button className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                      <button className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-logoRed hover:bg-logoRed-500 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                         Create Account
                       </button>
                     </div>
