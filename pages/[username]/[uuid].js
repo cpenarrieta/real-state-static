@@ -101,7 +101,7 @@ export async function getStaticProps(ctx) {
         openHouse: res?.data?.openHouse,
         images: res?.data?.images,
       },
-      revalidate: 900,
+      revalidate: 1200,
     };
   } catch (e) {
     return {
