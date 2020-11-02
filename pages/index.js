@@ -11,6 +11,9 @@ export default function Home({ lifetime }) {
       <Head>
         <title>Realtor App</title>
         <link rel="icon" href="/logo_icon.ico" />
+        <meta
+          name="description"           
+          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."></meta>
       </Head>
 
       <Hero />
