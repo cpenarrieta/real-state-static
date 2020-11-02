@@ -9,11 +9,31 @@ export default function Home({ lifetime }) {
   return (
     <div className="bg-logoPink">
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
         <title>Realtor App</title>
         <link rel="icon" href="/logo_icon.ico" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/180.png" />
+        <link rel="icon" type="image/png" sizes="196x196" href="/196.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/32.png" />
+        <link rel="icon" type="image/png" sizes="88x88" href="/88.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/16.png" />
+        <meta name="msapplication-TileImage" content="/144.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-TileColor" content="#F77E93" />
+        <meta name="theme-color" content="#F77E93" />
         <meta
-          name="description"           
-          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."></meta>
+          name="description"
+          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
+        ></meta>
       </Head>
 
       <Hero />

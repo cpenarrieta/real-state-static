@@ -1,0 +1,59 @@
+{
+  "name": "Realtor App",
+  "short_name": "Realtor App",
+  "description": "Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#F77E93",
+  "background_color": "#F77E93",
+  "icons": [
+    {
+      "src": "/32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "density": "0.75"
+    },
+    {
+      "src": "/48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "/72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/100.png",
+      "sizes": "100x100",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "/144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/196.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "/512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "/1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "density": "4.0"
+    }
+  ]
+}
