@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { PropertyPage } from "@cpenarrieta/real-state-property-components";
 import Head from "next/head";
 import { parseISO } from "date-fns";
+import '@cpenarrieta/real-state-property-components/dist/tailwind-output.css';
 
 const formatData = (propertyOpenHouse) => {
   return propertyOpenHouse?.map((o) => {
