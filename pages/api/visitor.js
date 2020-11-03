@@ -66,7 +66,10 @@ handler.post(async (req, res) => {
     a = 6
     res.json({ st: "ok" });
   } catch (err) {
-    res.status(500).json({ message: "Error creating Visitor | " + err + " - " + a });
+    res.status(500).json({ 
+      message: "Error creating Visitor | " + err + " - " + a + " | " + uuid,
+      str: process.env.DATABASE_URL 
+    });
   }
 });
 
