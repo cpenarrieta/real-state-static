@@ -34,6 +34,16 @@ export default function Home({ lifetime }) {
           name="description"
           content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
         ></meta>
+        <meta
+          property="og:description"
+          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
+        ></meta>
+        <meta content="Realtor App - Property Website Generator" property="og:title" />
+        <meta content="website" property="og:type"></meta>
+        <meta content="Realtor App" property="og:site_name"></meta>
+        <meta content="https://realtorapp.co/" property="og:url"></meta>
+        <meta content="https://res.cloudinary.com/real-state-app/image/upload/v1604048527/real-state-app/Original.png" property="og:image"></meta>
+        <link href="https://realtorapp.co/" rel="canonical"></link>
       </Head>
 
       <Hero />
