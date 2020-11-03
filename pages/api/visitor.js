@@ -34,41 +34,33 @@ handler.post(async (req, res) => {
     visitorId = uuidv4();
   }
 
-  let a = 0
   try {
     const propertyData = await req.db.query(
       `SELECT * FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
       [uuid]
     );
 
-    a = 1  
     if (propertyData.rows.length <= 0) {
       return res.status(400).json({ message: "Property not found" });
     }
 
-    a = 2
     const propertyId = propertyData.rows[0].id;
 
-    a = 3
     const data = await req.db.query(
       `INSERT INTO visitor("visitorId", "propertyId") VALUES($1, $2) RETURNING "visitorId"`,
       [visitorId, propertyId]
     );
 
-    a = 4
     if (data.rows.length <= 0) {
       return res.status(400).json({ message: "visitor not found" });
     }
 
-    a = 5
     setVisitorCookie(res, visitorId);
 
-    a = 6
     res.json({ st: "ok" });
   } catch (err) {
-    res.status(500).json({ 
-      message: "Error creating Visitor | " + err + " - " + a + " | " + uuid,
-      str: process.env.DATABASE_URL 
+    res.status(500).json({
+      message: "Error creating Visitor",
     });
   }
 });
