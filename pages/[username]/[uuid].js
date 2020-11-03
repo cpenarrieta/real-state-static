@@ -103,7 +103,12 @@ export default function Property({
       {images &&
         images.length &&
         images.map((i) => (
-          <meta content={i.urlLowRes} property="og:image"></meta>
+          <meta
+            key={i.urlLowRes}
+            content={i.urlLowRes}
+            property="og:image"
+            alt="Realtor App property"
+          ></meta>
         ))}
       <meta content={seoTitle} property="og:title" />
       <meta content={seoDescription} property="og:description"></meta>
@@ -113,6 +118,7 @@ export default function Property({
       ></meta>
       <meta
         content="https://res.cloudinary.com/real-state-app/image/upload/v1604048527/real-state-app/Original.png"
+        alt="Realtor App logo"
         property="og:image"
       ></meta>
       <link

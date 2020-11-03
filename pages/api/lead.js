@@ -59,7 +59,7 @@ handler.post(async (req, res) => {
       res.json({ st: "ok" });
     }
   } catch (err) {
-    res.status(500).json({ message: "Error creating lead" });
+    res.status(500).json({ message: "Error creating lead " + err });
   }
 });
 

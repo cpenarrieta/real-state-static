@@ -42,7 +42,7 @@ export default function Home({ lifetime }) {
         <meta content="website" property="og:type"></meta>
         <meta content="Realtor App" property="og:site_name"></meta>
         <meta content="https://realtorapp.co/" property="og:url"></meta>
-        <meta content="https://res.cloudinary.com/real-state-app/image/upload/v1604048527/real-state-app/Original.png" property="og:image"></meta>
+        <meta content="https://res.cloudinary.com/real-state-app/image/upload/v1604048527/real-state-app/Original.png" property="og:image" alt="Realtor App logo"></meta>
         <link href="https://realtorapp.co/" rel="canonical"></link>
       </Head>
 
