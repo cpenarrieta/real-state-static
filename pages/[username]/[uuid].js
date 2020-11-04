@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { PropertyPage } from "@cpenarrieta/real-state-property-components";
+import PropertyPage from "../../components/property/index";
 import Head from "next/head";
 import { parseISO } from "date-fns";
-import "@cpenarrieta/real-state-property-components/dist/tailwind-output.css";
 
 const formatData = (propertyOpenHouse) => {
   return propertyOpenHouse?.map((o) => {

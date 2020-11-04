@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 3001",
-    "build:tailwind": "tailwindcss build styles/index.css -o styles/tailwind-output.css",
-    "prebuild": "npm run build:tailwind"
+    "start": "next start -p 3001"
   },
   "dependencies": {
-    "@cpenarrieta/real-state-property-components": "^0.20.1",
     "@tailwindcss/ui": "^0.6.2",
     "@tailwindui/react": "^0.1.1",
     "axios": "^0.21.0",
