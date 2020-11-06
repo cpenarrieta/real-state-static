@@ -55,7 +55,10 @@ export default function Footer() {
           </div>
         </nav> */}
         <div className="mt-8 flex justify-center space-x-6">
-          <a href="#" className="text-logoFont hover:text-gray-500">
+          <a
+            href="https://www.facebook.com/myrealtorapp/"
+            className="text-logoFont hover:text-gray-500"
+          >
             <span className="sr-only">Facebook</span>
             <svg
               className="h-6 w-6"
@@ -70,7 +73,10 @@ export default function Footer() {
               />
             </svg>
           </a>
-          <a href="#" className="text-logoFont hover:text-gray-500">
+          <a
+            href="https://www.instagram.com/myrealtorapp/"
+            className="text-logoFont hover:text-gray-500"
+          >
             <span className="sr-only">Instagram</span>
             <svg
               className="h-6 w-6"
@@ -85,7 +91,10 @@ export default function Footer() {
               />
             </svg>
           </a>
-          <a href="#" className="text-logoFont hover:text-gray-500">
+          <a
+            href="https://twitter.com/realtor_app"
+            className="text-logoFont hover:text-gray-500"
+          >
             <span className="sr-only">Twitter</span>
             <svg
               className="h-6 w-6"

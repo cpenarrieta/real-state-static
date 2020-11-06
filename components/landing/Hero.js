@@ -161,9 +161,10 @@ export default function Hero() {
                 <span className="text-logoRed">your property deserves</span>
               </h2>
               <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+                We'll manage all your peoperty websites with lead capture
+                capabilities, open house schedule and analytics dashboards. No
+                subscriptions, No contracts, Pay once and own your property
+                website for ever.
               </p>
             </div>
           </div>
@@ -187,9 +188,7 @@ export default function Hero() {
       </div>
       <div className="bg-logoFont">
         <div className="max-w-screen-xl mx-auto pt-16 pb-20 px-4 sm:px-6 md:pb-24 lg:px-8">
-          <h3 className="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">
-            Trusted by over 26,000 forward-thinking agents
-          </h3>
+          <h3 className="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide"></h3>
         </div>
       </div>
     </div>

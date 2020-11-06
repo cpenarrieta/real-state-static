@@ -127,13 +127,11 @@ export default function TechSpecs({
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <Image
+                    <img
+                      alt="property location map"
                       src={`https://maps.googleapis.com/maps/api/staticmap?zoom=11&size=600x300&maptype=roadmap
           &markers=color:red%7Clabel:A%7C${lat},${lon}
           &key=${mapKey}`}
-                      alt="property location map"
-                      width={600}
-                      height={300}
                     />
                   </a>
                 </dd>
@@ -165,7 +163,14 @@ export default function TechSpecs({
                               />
                             </svg>
                             <span className="ml-2 flex-1 w-0 truncate">
-                              {attachment.title}
+                              <a
+                                href={attachment.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`font-medium hover:${colorSec} transition duration-150 ease-in-out`}
+                              >
+                                {attachment.title}
+                              </a>
                             </span>
                           </div>
                           <div className="ml-4 flex-shrink-0">

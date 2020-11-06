@@ -11,7 +11,7 @@ export default function Home({ lifetime }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <title>Realtor App</title>
+        <title>Realtor Property Websites | Realtor App</title>
         <link rel="icon" href="/logo_icon.ico" />
         <link rel="apple-touch-icon" sizes="57x57" href="/57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/60.png" />
@@ -32,14 +32,14 @@ export default function Home({ lifetime }) {
         <meta name="theme-color" content="#F77E93" />
         <meta
           name="description"
-          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
+          content="Property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
         ></meta>
         <meta
           property="og:description"
-          content="Realtor App is the new property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
+          content="Property website generator for Real Estate Agents in Canada and US. Edit your website, check analytics, manage your leads and set open house hours."
         ></meta>
         <meta
-          content="Realtor App - Property Website Generator"
+          content="Realtor Property Websites | Realtor App"
           property="og:title"
         />
         <meta content="website" property="og:type"></meta>
