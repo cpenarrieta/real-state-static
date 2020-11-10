@@ -44,7 +44,7 @@ export default function HeroBackground({
         backgroundSize: "cover",
       }}
     >
-      <div className="h-20 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2"></div>
+      <div className="h-10 sm:h-32 md:h-40 lg:h-full lg:absolute lg:left-0 lg:w-1/2"></div>
       <div className="relative max-w-screen-xl mx-auto px-4 py-8 sm:py-12 sm:px-6 lg:py-16">
         <div className="bg-white bg-opacity-75 rounded-md max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 p-10">
           <div>
