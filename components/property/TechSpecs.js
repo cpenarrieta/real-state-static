@@ -36,70 +36,86 @@ export default function TechSpecs({
         </div>
         <div className="px-4 py-5 sm:px-6">
           <dl className="grid grid-cols-1 col-gap-4 row-gap-8 sm:grid-cols-2">
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Address
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {`${address1}, ${city}, ${province} ${zipCode}`}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Community
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {community}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Property Type
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {getPropertyType(propertyType)}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Built Year
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {builtYear}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Taxes Last Year
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                ${formatPrice(grossTaxesLastYear)}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Lot Size
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {formatPrice(lotSize)} SQFT
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Bedrooms
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {bedrooms}
-              </dd>
-            </div>
-            <div className="sm:col-span-1">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Bathrooms
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {bathrooms}
-              </dd>
-            </div>
+            {address1 && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Address
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {`${address1}, ${city}, ${province} ${zipCode}`}
+                </dd>
+              </div>
+            )}
+            {community && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Community
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {community}
+                </dd>
+              </div>
+            )}
+            {propertyType && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Property Type
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {getPropertyType(propertyType)}
+                </dd>
+              </div>
+            )}
+            {builtYear && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Built Year
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {builtYear}
+                </dd>
+              </div>
+            )}
+            {grossTaxesLastYear && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Taxes Last Year
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  ${formatPrice(grossTaxesLastYear)}
+                </dd>
+              </div>
+            )}
+            {lotSize && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Lot Size
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {formatPrice(lotSize)} SQFT
+                </dd>
+              </div>
+            )}
+            {bedrooms && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Bedrooms
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {bedrooms}
+                </dd>
+              </div>
+            )}
+            {bathrooms && (
+              <div className="sm:col-span-1">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Bathrooms
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {bathrooms}
+                </dd>
+              </div>
+            )}
             <div className="sm:col-span-1">
               <dt className="text-sm leading-5 font-medium text-gray-500">
                 Strata
@@ -108,14 +124,16 @@ export default function TechSpecs({
                 {strata ? "Yes" : "Non Strata"}
               </dd>
             </div>
-            <div className="sm:col-span-2">
-              <dt className="text-sm leading-5 font-medium text-gray-500">
-                Description
-              </dt>
-              <dd className="mt-1 text-sm leading-5 text-gray-900">
-                {description}
-              </dd>
-            </div>
+            {description && (
+              <div className="sm:col-span-2">
+                <dt className="text-sm leading-5 font-medium text-gray-500">
+                  Description
+                </dt>
+                <dd className="mt-1 text-sm leading-5 text-gray-900">
+                  {description}
+                </dd>
+              </div>
+            )}
             {lat && lon && (
               <div className="sm:col-span-2">
                 <dt className="text-sm leading-5 font-medium text-gray-500">

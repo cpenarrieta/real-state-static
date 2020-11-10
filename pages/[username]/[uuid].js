@@ -115,6 +115,7 @@ export default function Property({
         content={`https://realtorapp.co/${username}/${uuid}`}
         property="og:url"
       ></meta>
+      <meta content={process.env.FACEBOOK_APP_ID} property="fb:app_id"></meta>
       <meta
         content="https://res.cloudinary.com/real-state-app/image/upload/v1604048527/real-state-app/Original.png"
         alt="Realtor App logo"
