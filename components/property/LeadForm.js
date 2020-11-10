@@ -65,7 +65,10 @@ export default function LeadForm({
         <div className="absolute inset-y-0 left-0 w-1/2 bg-white-50"></div>
       </div>
       <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
-        <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 lg:py-24 xl:pr-12">
+        <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 lg:py-12 xl:pr-12">
+          <h2 className={`text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 pb-5 ${colorMain}`}>
+            Let's work together
+          </h2>
           <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
             <div className="relative pt-5">
               <Image
@@ -200,7 +203,7 @@ export default function LeadForm({
           </div>
         </div>
 
-        <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:py-24 lg:px-8 xl:pl-12 rounded-lg">
+        <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-2 lg:py-12 lg:px-8 xl:pl-12 rounded-lg">
           <div className="max-w-lg mx-auto lg:max-w-none">
             <form
               onSubmit={handleSubmit}

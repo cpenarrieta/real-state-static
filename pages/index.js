@@ -51,6 +51,7 @@ export default function Home({ lifetime }) {
           alt="Realtor App logo"
         ></meta>
         <link href="https://realtorapp.co/" rel="canonical"></link>
+        <meta content={process.env.FACEBOOK_APP_ID} property="fb:app_id"></meta>
       </Head>
 
       <Hero />
