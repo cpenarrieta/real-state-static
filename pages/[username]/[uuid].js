@@ -27,12 +27,18 @@ export default function Property({
 }) {
   const router = useRouter();
 
+  if (router.isFallback) {
+    return <div>Properety Loading......I'm sorry for the wait!!</div>;
+  }
+
   useEffect(() => {
     async function visitorFunction() {
-      const { uuid } = router.query;
+      const { uuid, username } = router.query;
       try {
         await axios.post("/api/visitor", {
           uuid,
+          username,
+          type: "PROPERTY",
         });
       } catch (e) {
         // ERROR send to Bugsnag
@@ -40,10 +46,6 @@ export default function Property({
     }
     visitorFunction();
   }, []);
-
-  if (router.isFallback) {
-    return <div>Properety Loading......I'm sorry for the wait!!</div>;
-  }
 
   const { username, uuid } = router.query;
 

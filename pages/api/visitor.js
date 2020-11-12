@@ -25,9 +25,12 @@ const handler = nextConnect();
 handler.use(database);
 
 handler.post(async (req, res) => {
-  const { uuid } = req.body;
+  const { uuid, username, type } = req.body;
 
-  if (!uuid) return res.status(400).json({ message: "uuid not found" });
+  if (!uuid && type === "PROPERTY")
+    return res.status(400).json({ message: "uuid not found" });
+  if (!username && type === "USER")
+    return res.status(400).json({ message: "uuid not found" });
 
   let visitorId = getVisitorCookie(req);
   if (!visitorId) {
@@ -35,24 +38,57 @@ handler.post(async (req, res) => {
   }
 
   try {
-    const propertyData = await req.db.query(
-      `SELECT * FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
-      [uuid]
-    );
+    if (type === "USER") {
+      const userData = await req.db.query(
+        `SELECT id FROM public.user WHERE username = $1`,
+        [username]
+      );
 
-    if (propertyData.rows.length <= 0) {
-      return res.status(400).json({ message: "Property not found" });
-    }
+      if (userData.rows.length <= 0) {
+        return res.status(400).json({ message: "User not found" });
+      }
 
-    const propertyId = propertyData.rows[0].id;
+      const userId = userData.rows[0].id;
 
-    const data = await req.db.query(
-      `INSERT INTO visitor("visitorId", "propertyId") VALUES($1, $2) RETURNING "visitorId"`,
-      [visitorId, propertyId]
-    );
+      const data = await req.db.query(
+        `INSERT INTO visitor("visitorId", "userId", type) VALUES($1, $2, 'USER') RETURNING "visitorId"`,
+        [visitorId, userId]
+      );
 
-    if (data.rows.length <= 0) {
-      return res.status(400).json({ message: "visitor not found" });
+      if (data.rows.length <= 0) {
+        return res.status(400).json({ message: "visitor not found" });
+      }
+    } else {
+      const propertyData = await req.db.query(
+        `SELECT id FROM public.property WHERE status in ('ACTIVE', 'SOLD') and "publishedStatus" = 'PUBLISHED' and uuid = $1`,
+        [uuid]
+      );
+
+      if (propertyData.rows.length <= 0) {
+        return res.status(400).json({ message: "Property not found" });
+      }
+
+      const propertyId = propertyData.rows[0].id;
+
+      const userData = await req.db.query(
+        `SELECT id FROM public.user WHERE username = $1`,
+        [username]
+      );
+
+      if (userData.rows.length <= 0) {
+        return res.status(400).json({ message: "User not found" });
+      }
+
+      const userId = userData.rows[0].id;
+
+      const data = await req.db.query(
+        `INSERT INTO visitor("visitorId", "propertyId", "userId") VALUES($1, $2, $3) RETURNING "visitorId"`,
+        [visitorId, propertyId, userId]
+      );
+
+      if (data.rows.length <= 0) {
+        return res.status(400).json({ message: "visitor not found" });
+      }
     }
 
     setVisitorCookie(res, visitorId);

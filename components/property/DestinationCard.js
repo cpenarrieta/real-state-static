@@ -18,7 +18,7 @@ export default function DestinationCard({
   const [_, colorSec] = getColorThemeText(color);
 
   return (
-    <a href={`/${username}/${uuid}`} rel="noopener noreferrer" target="_blank">
+    <a href={`/${username}/${uuid}`} rel="noopener noreferrer">
       <div className="flex items-center rounded-lg bg-white shadow-lg overflow-hidden h-32 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
         <Image
           src={imageUrl}

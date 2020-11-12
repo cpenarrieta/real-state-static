@@ -27,6 +27,7 @@ export default function LeadForm({
   color,
   uuid,
   visitorSource,
+  username,
 }) {
   const [successMessage, setSuccessMessage] = useState();
   const [errorMessage, setErrorMessage] = useState();
@@ -48,7 +49,18 @@ export default function LeadForm({
           email,
           name,
           uuid,
+          username,
           phone,
+          type: "PROPERTY",
+        });
+        setSuccessMessage(data?.st);
+      } else if (visitorSource === "agent_site") {
+        const { data } = await axios.post("/api/lead", {
+          email,
+          name,
+          username,
+          phone,
+          type: "USER",
         });
         setSuccessMessage(data?.st);
       } else {
@@ -60,13 +72,20 @@ export default function LeadForm({
   }
 
   return (
-    <div className="relative bg-gray-50" id="form-lead-section">
+    <div
+      className={`relative ${
+        visitorSource === "agent_site" ? "bg-white" : "bg-gray-50"
+      } `}
+      id="form-lead-section"
+    >
       <div className="absolute inset-0">
         <div className="absolute inset-y-0 left-0 w-1/2 bg-white-50"></div>
       </div>
       <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
         <div className="bg-white-50 py-16 px-4 sm:px-6 lg:col-span-3 lg:px-8 lg:py-12 xl:pr-12">
-          <h2 className={`text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 pb-5 ${colorMain}`}>
+          <h2
+            className={`text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10 pb-5 ${colorMain}`}
+          >
             Let's work together
           </h2>
           <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
@@ -144,6 +163,28 @@ export default function LeadForm({
                 </dl>
 
                 <ul className="flex space-x-5">
+                  <li>
+                    <a
+                      href={`https://realtorapp.co/${username}/`}
+                      className="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150"
+                    >
+                      <span className="sr-only">Web</span>
+                      <svg
+                        className={`w-5 h-5 hover:${colorSec}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                        />
+                      </svg>
+                    </a>
+                  </li>
                   <li>
                     <a
                       href="#"

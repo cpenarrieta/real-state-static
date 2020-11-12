@@ -13,6 +13,7 @@ export default function PropertyCard({
   publishedStatus,
   currency,
   hidePrice,
+  username,
 }) {
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
   const formattedPrice = new Intl.NumberFormat("en-us").format(price || 0);
@@ -20,7 +21,7 @@ export default function PropertyCard({
   return (
     <div className="">
       <div className="relative">
-        <a href={`/manage-property/${uuid}`}>
+        <a href={`/${username}/${uuid}`}>
           <Image
             src={mainPictureLowRes || "/home-default.png"}
             alt={uuid}

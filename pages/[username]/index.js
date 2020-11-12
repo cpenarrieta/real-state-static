@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import axios from "axios";
 import Head from "next/head";
 import fetch from "node-fetch";
 import { useRouter } from "next/router";
@@ -20,6 +22,21 @@ export default function Agent({
   property,
 }) {
   const router = useRouter();
+
+  useEffect(() => {
+    async function visitorFunction() {
+      const { username } = router.query;
+      try {
+        await axios.post("/api/visitor", {
+          username,
+          type: "USER",
+        });
+      } catch (e) {
+        // ERROR send to Bugsnag
+      }
+    }
+    visitorFunction();
+  }, []);
 
   if (router.isFallback) {
     return <div>User Loading......I'm sorry for the wait!!</div>;
@@ -93,25 +110,22 @@ export default function Agent({
 
       {/* TITLE */}
 
-      <div className="bg-gray-900">
+      <div className="bg-logoPink">
         <div className="max-w-screen-xl mx-auto py-16 px-4 sm:py-18 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-base leading-6 font-semibold text-indigo-600 tracking-wide uppercase">
-              Real Estate Agent
-            </h1>
-            <p className="mt-1 text-4xl leading-10 font-extrabold text-white sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
+            <p className="text-4xl leading-10 font-extrabold text-logoFont sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
               {firstName} {lastName}
             </p>
-            <p className="max-w-xl mt-5 mx-auto text-xl leading-7 text-gray-300">
-              ksldjfhl ksdfkljh sdklfjh sdkfljhsdfkjh sdfkljh
-              sdfkljhsdkalfjhsdkfljahsdfkljhs dfkljh klsdjfhslkdfj
-            </p>
+            <h1 className="mt-3 text-base leading-6 font-semibold text-logoRed tracking-wide uppercase">
+              Real Estate
+            </h1>
           </div>
         </div>
       </div>
 
       <LeadForm
-        uuid={"XXX"}
+        uuid={username}
+        username={username}
         userEmail={email}
         userPhone={phone}
         userAddress1={address1}
@@ -122,13 +136,13 @@ export default function Agent({
         userLastName={lastName}
         userPicture={picture}
         userSmallBio={smallBio}
-        color={"indigo"}
+        color={"logoFont"}
         visitorSource={"agent_site"}
       />
 
       {/* Active Properties */}
 
-      <div className="bg-gray-900">
+      <div className="bg-logoFont">
         <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
@@ -139,23 +153,18 @@ export default function Agent({
                 Check the following properties and let me know interrests you.
               </p>
             </div>
-            <ul className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:gap-8">
-              {property.map((p) => {
-                return (
-                  <li
-                    key={p.uuid}
-                    className="py-10 px-6 text-center rounded-lg xl:px-10 xl:text-left"
-                  >
-                    <PropertyCard {...p} />
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+              {property.map((p) => (
+                <div key={p.uuid}>
+                  <PropertyCard {...p} username={username} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <Footer color="indigo" />
+      <Footer color="logoFont" />
     </div>
   );
 }

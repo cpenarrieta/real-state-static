@@ -26,6 +26,15 @@ export const getColorThemeText = (color) => {
   if (color === "pink") {
     return ["text-pink-700", "text-pink-500"];
   }
+  if (color === "logoFont") {
+    return ["text-logoFont", "text-logoFont"];
+  }
+  if (color === "logoPink") {
+    return ["text-logoPink", "text-logoPink"];
+  }
+  if (color === "logoRed") {
+    return ["text-logoRed", "text-logoRed"];
+  }
   return ["text-indigo-500", "text-indigo-400"];
 };
 
@@ -56,6 +65,15 @@ export const getColorThemeBackground = (color) => {
   }
   if (color === "pink") {
     return ["bg-pink-700", "bg-pink-500"];
+  }
+  if (color === "logoFont") {
+    return ["bg-logoFont", "bg-logoFont"];
+  }
+  if (color === "logoPink") {
+    return ["bg-logoPink", "bg-logoPink"];
+  }
+  if (color === "logoRed") {
+    return ["bg-logoRed", "bg-logoRed"];
   }
   return ["bg-indigo-500", "bg-indigo-400"];
 };
