@@ -48,8 +48,12 @@ export default function PropertyPage({
   uuid,
   hidePrice = false,
   strata = false,
-  visitorSource = 'prod',
+  visitorSource = "prod",
   mapKey,
+  userInstagramLink,
+  userTwitterLink,
+  userFacebookLink,
+  userWebsite,
 }) {
   return (
     <div className="h-full bg-gray-50">
@@ -110,6 +114,11 @@ export default function PropertyPage({
         userSmallBio={userSmallBio}
         color={color}
         visitorSource={visitorSource}
+        address={`${address1}, ${city}, ${province}`}
+        instagramLink={userInstagramLink}
+        twitterLink={userTwitterLink}
+        facebookLink={userFacebookLink}
+        website={userWebsite}
       />
 
       {otherProperties && otherProperties.length > 0 && (

@@ -20,6 +20,10 @@ export default function Agent({
   zipcode,
   smallBio,
   property,
+  instagramLink,
+  twitterLink,
+  facebookLink,
+  website,
 }) {
   const router = useRouter();
 
@@ -138,6 +142,10 @@ export default function Agent({
         userSmallBio={smallBio}
         color={"logoFont"}
         visitorSource={"agent_site"}
+        instagramLink={instagramLink}
+        twitterLink={twitterLink}
+        facebookLink={facebookLink}
+        website={website}
       />
 
       {/* Active Properties */}
