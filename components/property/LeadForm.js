@@ -3,15 +3,7 @@ import axios from "axios";
 import Alert from "./Alert";
 import Image from "next/image";
 import { getColorThemeText, getColorThemeBackground } from "./utils/colorTheme";
-
-function formatPhoneNumber(phoneNumberString) {
-  var cleaned = ("" + phoneNumberString).replace(/\D/g, "");
-  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-  if (match) {
-    return "(" + match[1] + ") " + match[2] + "-" + match[3];
-  }
-  return null;
-}
+import { formatPhoneNumber } from "./utils/formatPhoneNumber";
 
 export default function LeadForm({
   userEmail,

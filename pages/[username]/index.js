@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import LeadForm from "../../components/property/LeadForm";
 import Footer from "../../components/property/Footer";
 import PropertyCard from "../../components/user/PropertyCard";
+import { formatPhoneNumber } from "../../components/property/utils/formatPhoneNumber";
 
 export default function Agent({
   error,
@@ -117,36 +118,18 @@ export default function Agent({
       <div className="bg-logoPink">
         <div className="max-w-screen-xl mx-auto py-16 px-4 sm:py-18 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-4xl leading-10 font-extrabold text-logoFont sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
+            <h1 className="text-4xl leading-10 font-extrabold text-logoFont sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
               {firstName} {lastName}
-            </p>
-            <h1 className="mt-3 text-base leading-6 font-semibold text-logoRed tracking-wide uppercase">
-              Real Estate
             </h1>
+            <p className="mt-3 text-base leading-6 font-semibold text-logoRed tracking-wide uppercase">
+              Real Estate
+            </p>
+            <p className="text-base leading-6 font-normal text-logoFont tracking-wide">
+              {email} | {formatPhoneNumber(phone)}
+            </p>
           </div>
         </div>
       </div>
-
-      <LeadForm
-        uuid={username}
-        username={username}
-        userEmail={email}
-        userPhone={phone}
-        userAddress1={address1}
-        userCity={city}
-        userProvince={province}
-        userZipcode={zipcode}
-        userFirstName={firstName}
-        userLastName={lastName}
-        userPicture={picture}
-        userSmallBio={smallBio}
-        color={"logoFont"}
-        visitorSource={"agent_site"}
-        instagramLink={instagramLink}
-        twitterLink={twitterLink}
-        facebookLink={facebookLink}
-        website={website}
-      />
 
       {/* Active Properties */}
 
@@ -171,6 +154,27 @@ export default function Agent({
           </div>
         </div>
       </div>
+
+      <LeadForm
+        uuid={username}
+        username={username}
+        userEmail={email}
+        userPhone={phone}
+        userAddress1={address1}
+        userCity={city}
+        userProvince={province}
+        userZipcode={zipcode}
+        userFirstName={firstName}
+        userLastName={lastName}
+        userPicture={picture}
+        userSmallBio={smallBio}
+        color={"logoFont"}
+        visitorSource={"agent_site"}
+        instagramLink={instagramLink}
+        twitterLink={twitterLink}
+        facebookLink={facebookLink}
+        website={website}
+      />
 
       <Footer color="logoFont" />
     </div>
