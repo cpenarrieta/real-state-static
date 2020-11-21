@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Pricing({ oneYear, lifetime }) {
   return (
-    <div className="bg-gray-50">
+    <div id="id-pricing" className="bg-gray-50">
       <div className="pt-12 sm:pt-16 lg:pt-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

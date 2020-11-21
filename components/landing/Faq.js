@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Faq() {
   return (
-    <div className="bg-logoPink">
+    <div id="id-faq" className="bg-logoPink">
       <div className="max-w-screen-xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <h2 className="text-3xl leading-9 font-extrabold text-logoFont">
           Frequently asked questions
@@ -11,57 +11,60 @@ export default function Faq() {
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:col-gap-8 md:row-gap-12">
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                What's the best thing about Switzerland?
+                Do I have to pay before creating a website?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                I don't know, but the flag is a big plus. Lorem ipsum dolor sit
-                amet consectetur adipisicing elit. Quas cupiditate laboriosam
-                fugiat.
+                No. You will only pay once you feel your website is ready to go.
+                Analytics and lead information will become available after you
+                pay.
               </dd>
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                Why do you never see elephants hiding in trees?
+                Why having a website for each propeerty?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                Because they're so good at it. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
+                We believe this is the best approach to generate leads. Having a
+                dedicated website for a property is much better.
               </dd>
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                How do you make holy water?
+                What is trhe refund policy?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                You boil the hell out of it. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
+                If you are not satisfied send us an email at hello@realtorapp.co
+                and you will get a refund. No questions asked.
               </dd>
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                Why can't you hear a pterodactyl go to the bathroom?
+                How many pictures/attachments can I add to a property website?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                Because the pee is silent. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
+                You can add up to 50 high quiality pictures and up to 10 pdf
+                attachments.
               </dd>
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                What do you call someone with no body and no nose?
+                Will I have a dedicated agent website?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Quas cupiditate laboriosam fugiat.
+                Yes. No matter how many properties you have activated, you will
+                have a dedicated agent website.
               </dd>
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                Why did the invisible man turn down the job offer?
+                What does the $50 price includes?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
-                He couldn't see himself doing it. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
+                You will be able to edit a property website and it will be live
+                forever. You will be able to make changes, view analytics and
+                receive leads information. Also, keep in mind that each property
+                website costs $50 but you will only pay once the website is
+                ready.
               </dd>
             </div>
           </dl>

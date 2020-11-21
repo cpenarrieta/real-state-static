@@ -19,7 +19,7 @@ export default function PropertyCard({
   const formattedPrice = new Intl.NumberFormat("en-us").format(price || 0);
 
   return (
-    <div className="">
+    <div>
       <div className="relative">
         <a href={`/${username}/${uuid}`}>
           <Image
@@ -27,6 +27,7 @@ export default function PropertyCard({
             alt={uuid}
             width={389}
             height={324}
+            layout="responsive"
             className="absolute h-full w-full object-cover rounded-lg shadow-md transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105"
           />
         </a>
