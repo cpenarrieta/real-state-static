@@ -258,7 +258,7 @@ export default function Pricing({ oneYear, lifetime }) {
                           </svg>
                         </div>
                         <p className="ml-3 text-sm leading-5 text-logoFont">
-                          30 High quality pictures
+                          50 High quality pictures
                         </p>
                       </li>
                       <li className="mt-5 flex items-start lg:col-span-1 lg:mt-0">
@@ -312,7 +312,7 @@ export default function Pricing({ oneYear, lifetime }) {
                           </svg>
                         </div>
                         <p className="ml-3 text-sm leading-5 text-logoFont">
-                          5 PDF Attachments
+                          10 PDF Attachments
                         </p>
                       </li>
                       <li className="mt-5 flex items-start lg:col-span-1 lg:mt-0">
