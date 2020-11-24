@@ -47,7 +47,7 @@ export default function PropertyCard({
           <h4 className="mt-1 font-semibold text-lg leading-tight truncate text-logoFont">
             {title}
           </h4>
-          {!hidePrice && (
+          {!hidePrice && price && (
             <div className="mt-1">
               $ {formattedPrice}
               <span className="text-gray-600 text-xs"> {currency}</span>
