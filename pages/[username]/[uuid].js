@@ -28,7 +28,7 @@ export default function Property({
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Properety Loading......I'm sorry for the wait!!</div>;
+    return <div>Loading website...</div>;
   }
 
   useEffect(() => {
