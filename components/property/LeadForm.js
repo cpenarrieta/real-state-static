@@ -280,6 +280,7 @@ export default function LeadForm({
             <form
               onSubmit={handleSubmit}
               className="grid grid-cols-1 row-gap-6"
+              id="form-lead-section-form"
             >
               <div>
                 <label htmlFor="full_name" className="sr-only">

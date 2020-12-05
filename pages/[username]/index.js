@@ -115,7 +115,7 @@ export default function Agent({
 
       {/* TITLE */}
 
-      <div className="bg-white shadow">
+      <div className="bg-white shadow fixed w-full z-10">
         <div className="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
           <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
             <div className="flex-1 min-w-0">
@@ -147,9 +147,9 @@ export default function Agent({
                         aria-hidden="true"
                       >
                         <path
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                          clip-rule="evenodd"
+                          clipRule="evenodd"
                         />
                       </svg>
 
@@ -192,8 +192,8 @@ export default function Agent({
                       </svg>
                       <a href={`tel:+1${phone}`}>{formatPhoneNumber(phone)}</a>
                     </dd>
-                    <dt className="sr-only">Account status</dt>
-                    <dd className="mt-3 flex items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize">
+                    <dt className="sr-only hidden sm:block">Account status</dt>
+                    <dd className="mt-3 items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize hidden sm:flex">
                       <svg
                         className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -202,9 +202,9 @@ export default function Agent({
                         aria-hidden="true"
                       >
                         <path
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clip-rule="evenodd"
+                          clipRule="evenodd"
                         />
                       </svg>
                       Verified account
@@ -219,7 +219,7 @@ export default function Agent({
                 className="inline-flex items-center px-4 py-2 shadow-sm text-sm font-medium rounded-md text-white bg-logoRed hover:bg-logoRed-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
                 onClick={() => {
                   const el = window.document.getElementById(
-                    "form-lead-section"
+                    "form-lead-section-form"
                   );
                   el.scrollIntoView({ behavior: "smooth" });
                 }}
@@ -233,7 +233,7 @@ export default function Agent({
 
       {/* Active Properties */}
 
-      <div className="bg-logoFont">
+      <div className="bg-logoFont pt-56 sm:pt-40 md:pt-28 lg:pt-12"> 
         <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
@@ -244,7 +244,7 @@ export default function Agent({
                 Check the following properties and let me know interrests you.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 overflow-y-auto max-h-screen">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
               {property.map((p) => (
                 <div key={p.uuid}>
                   <PropertyCard {...p} username={username} />
