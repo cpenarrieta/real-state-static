@@ -136,9 +136,9 @@ export default function Agent({
                       {firstName} {lastName}
                     </h1>
                   </div>
-                  <dl className="mt-6 flex flex-col sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap">
+                  <dl className="flex ml-3 mt-1 flex-row flex-wrap">
                     <dt className="sr-only">Location</dt>
-                    <dd className="flex items-center text-sm text-gray-500 font-medium capitalize sm:mr-6">
+                    <dd className="flex items-center text-sm text-gray-500 font-medium capitalize mr-6">
                       <svg
                         className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +157,7 @@ export default function Agent({
                     </dd>
 
                     <dt className="sr-only">Email</dt>
-                    <dd className="flex items-center text-sm text-gray-500 font-medium sm:mr-6">
+                    <dd className="flex items-center text-sm text-gray-500 font-medium mr-6">
                       <svg
                         className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +175,7 @@ export default function Agent({
                       <a href={`mailto:${email}`}>{email}</a>
                     </dd>
                     <dt className="sr-only">Phone</dt>
-                    <dd className="flex items-center text-sm text-gray-500 font-medium sm:mr-6">
+                    <dd className="flex items-center text-sm text-gray-500 font-medium mr-6">
                       <svg
                         className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -192,8 +192,8 @@ export default function Agent({
                       </svg>
                       <a href={`tel:+1${phone}`}>{formatPhoneNumber(phone)}</a>
                     </dd>
-                    <dt className="sr-only hidden sm:block">Account status</dt>
-                    <dd className="mt-3 items-center text-sm text-gray-500 font-medium sm:mr-6 sm:mt-0 capitalize hidden sm:flex">
+                    <dt className="sr-only">Account status</dt>
+                    <dd className="flex items-center text-sm text-gray-500 font-medium mr-6 sm:mt-0 capitalize ">
                       <svg
                         className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -213,7 +213,7 @@ export default function Agent({
                 </div>
               </div>
             </div>
-            <div className="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+            <div className="mt-3 flex space-x-3 md:mt-0 md:ml-4">
               <button
                 type="button"
                 className="inline-flex items-center px-4 py-2 shadow-sm text-sm font-medium rounded-md text-white bg-logoRed hover:bg-logoRed-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
@@ -233,11 +233,11 @@ export default function Agent({
 
       {/* Active Properties */}
 
-      <div className="bg-logoFont pt-56 sm:pt-40 md:pt-28 lg:pt-12"> 
+      <div className="bg-logoFont pt-44 sm:pt-36 md:pt-20 lg:pt-12">
         <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
           <div className="space-y-12">
             <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-              <h2 className="text-3xl leading-9 font-extrabold text-white tracking-tight sm:text-4xl">
+              <h2 className="text-xl leading-9 font-bold text-white tracking-tight sm:text-4xl">
                 My Managed Properties
               </h2>
               <p className="text-xl leading-7 text-gray-300">
