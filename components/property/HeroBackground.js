@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { formatPrice } from "./utils/price";
 import { getPropertyBadge } from "./utils/propertyStatus";
 import { getColorThemeBackground, getColorThemeText } from "./utils/colorTheme";
 import { format, compareDesc, isToday } from "date-fns";
+import ShareModal from "./ShareModal";
 
 export default function HeroBackground({
   title,
@@ -18,10 +19,17 @@ export default function HeroBackground({
   color,
   hidePrice,
   openHouse,
+  uuid,
+  username,
+  seoTitle,
 }) {
+  const [showShareModal, setShowShareModal] = useState(false);
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
   const [colorMain, colorHover] = getColorThemeBackground(color);
   const [colorMainText, _] = getColorThemeText(color);
+
+  const origin = "https://realtorapp.co";
+  const liveWebsiteUrl = `${origin}/${username}/${uuid}`;
 
   // TODO: set default background if there is no image
   let comingOpenHouse = [];
@@ -155,20 +163,68 @@ export default function HeroBackground({
             </div>
           )}
 
-          <div className="rounded-lg shadow-md mt-6">
-            <button
-              onClick={() => {
-                const el = window.document.getElementById("form-lead-section");
-                el.scrollIntoView({ behavior: "smooth" });
-              }}
-              className={`block w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
-              aria-describedby="tier-growth"
-            >
-              Request Info
-            </button>
+          <div className="flex flex-row flex-wrap">
+            <div className="rounded-lg shadow-md mt-6 flex-1">
+              <button
+                onClick={() => {
+                  const el = window.document.getElementById(
+                    "form-lead-section"
+                  );
+                  el.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={`block w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
+                aria-describedby="tier-growth"
+              >
+                Request Info
+              </button>
+            </div>
+
+            <div className="rounded-lg shadow-md mt-6 flex-1 ml-2">
+              <button
+                onClick={async () => {
+                  if (navigator.share) {
+                    const shareData = {
+                      title: seoTitle,
+                      text: seoTitle,
+                      url: liveWebsiteUrl,
+                    };
+
+                    try {
+                      await navigator.share(shareData);
+                    } catch {}
+                  } else {
+                    setShowShareModal(true);
+                  }
+                }}
+                className={`inline-flex justify-center items-center w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
+                aria-describedby="tier-growth"
+              >
+                <svg
+                  className="-ml-1 mr-3 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+                Share
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <ShareModal
+        showModal={showShareModal}
+        setShowModal={setShowShareModal}
+        liveWebsiteUrl={liveWebsiteUrl}
+        seoTitle={seoTitle}
+      />
     </div>
   );
 }

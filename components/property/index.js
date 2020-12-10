@@ -54,6 +54,7 @@ export default function PropertyPage({
   userTwitterLink,
   userFacebookLink,
   userWebsite,
+  seoTitle,
 }) {
   return (
     <div className="h-full bg-gray-50">
@@ -72,6 +73,9 @@ export default function PropertyPage({
         color={color}
         hidePrice={hidePrice}
         openHouse={openHouse}
+        uuid={uuid}
+        username={username}
+        seoTitle={seoTitle}
       />
 
       {videoUrl && <PropertyVideo videoUrl={videoUrl} videoType={videoType} />}

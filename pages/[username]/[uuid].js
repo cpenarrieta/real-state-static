@@ -145,6 +145,7 @@ export default function Property({
         username={username}
         visitorSource="prod"
         mapKey={process.env.NEXT_PUBLIC_MAPS_KEY}
+        seoTitle={seoTitle}
       />
     </>
   );
