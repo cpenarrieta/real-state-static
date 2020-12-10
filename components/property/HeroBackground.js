@@ -172,7 +172,7 @@ export default function HeroBackground({
                   );
                   el.scrollIntoView({ behavior: "smooth" });
                 }}
-                className={`block w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
+                className={`block w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150 h-full`}
                 aria-describedby="tier-growth"
               >
                 Request Info
@@ -196,7 +196,7 @@ export default function HeroBackground({
                     setShowShareModal(true);
                   }
                 }}
-                className={`inline-flex justify-center items-center w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150`}
+                className={`inline-flex justify-center items-center w-full text-center rounded-lg border border-transparent ${colorMain} px-6 py-4 text-xl leading-6 font-medium text-white hover:${colorHover} focus:outline-none focus:border-${colorMain} focus:shadow-outline-${color} transition ease-in-out duration-150 h-full`}
                 aria-describedby="tier-growth"
               >
                 <svg
