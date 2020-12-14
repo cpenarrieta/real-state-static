@@ -97,7 +97,7 @@ export default function ShareModal({
                     className="text-lg leading-6 font-medium text-logoFont"
                     id="modal-headline"
                   >
-                    Share your Property Page
+                    Share this Property
                   </h3>
                   <div className="mt-2">
                     <div>
