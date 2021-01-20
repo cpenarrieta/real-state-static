@@ -120,18 +120,22 @@ export default function Agent({
           <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
             <div className="flex-1 min-w-0">
               <div className="flex items-center">
-                <img
-                  className="hidden h-16 w-16 rounded-full sm:block"
-                  src={picture}
-                  alt="agent profile"
-                />
+                {picture && (
+                  <img
+                    className="hidden h-16 w-16 rounded-full sm:block"
+                    src={picture}
+                    alt="agent profile"
+                  />
+                )}
                 <div>
                   <div className="flex items-center">
-                    <img
-                      className="h-16 w-16 rounded-full sm:hidden"
-                      src={picture}
-                      alt="agent profile"
-                    />
+                    {picture && (
+                      <img
+                        className="h-16 w-16 rounded-full sm:hidden"
+                        src={picture}
+                        alt="agent profile"
+                      />
+                    )}
                     <h1 className="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
                       {firstName} {lastName}
                     </h1>
@@ -233,48 +237,52 @@ export default function Agent({
 
       {/* Active Properties */}
 
-      <div className="bg-logoFont pt-44 sm:pt-36 md:pt-20 lg:pt-12">
-        <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
-          <div className="space-y-12">
-            <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-              <h2 className="text-xl leading-9 font-bold text-white tracking-tight sm:text-4xl">
-                My Managed Properties
-              </h2>
-              <p className="text-xl leading-7 text-gray-300">
-                Check the following properties and let me know interrests you.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-              {property.map((p) => (
-                <div key={p.uuid}>
-                  <PropertyCard {...p} username={username} />
-                </div>
-              ))}
+      {property && property.length && (
+        <div className="bg-logoFont pt-44 sm:pt-36 md:pt-20 lg:pt-12">
+          <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
+            <div className="space-y-12">
+              <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                <h2 className="text-xl leading-9 font-bold text-white tracking-tight sm:text-4xl">
+                  My Managed Properties
+                </h2>
+                <p className="text-xl leading-7 text-gray-300">
+                  Check the following properties and let me know interrests you.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+                {property.map((p) => (
+                  <div key={p.uuid}>
+                    <PropertyCard {...p} username={username} />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
-      <LeadForm
-        uuid={username}
-        username={username}
-        userEmail={email}
-        userPhone={phone}
-        userAddress1={address1}
-        userCity={city}
-        userProvince={province}
-        userZipcode={zipcode}
-        userFirstName={firstName}
-        userLastName={lastName}
-        userPicture={picture}
-        userSmallBio={smallBio}
-        color={"logoFont"}
-        visitorSource={"agent_site"}
-        instagramLink={instagramLink}
-        twitterLink={twitterLink}
-        facebookLink={facebookLink}
-        website={website}
-      />
+      <div className={`${!property || !property.length ? "mt-16" : ""}`}>
+        <LeadForm
+          uuid={username}
+          username={username}
+          userEmail={email}
+          userPhone={phone}
+          userAddress1={address1}
+          userCity={city}
+          userProvince={province}
+          userZipcode={zipcode}
+          userFirstName={firstName}
+          userLastName={lastName}
+          userPicture={picture}
+          userSmallBio={smallBio}
+          color={"logoFont"}
+          visitorSource={"agent_site"}
+          instagramLink={instagramLink}
+          twitterLink={twitterLink}
+          facebookLink={facebookLink}
+          website={website}
+        />
+      </div>
 
       <Footer color="logoFont" />
     </div>

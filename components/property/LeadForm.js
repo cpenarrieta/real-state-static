@@ -87,13 +87,13 @@ export default function LeadForm({
           </h2>
           <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
             <div className="relative pt-5">
-              <Image
+              {userPicture && <Image
                 src={userPicture}
                 alt="realtor agent"
                 width={210}
                 height={280}
                 className="absolute inset-0 object-cover h-full w-full shadow-lg rounded-lg"
-              />
+              />}
             </div>
             <div className="sm:col-span-2">
               <div className="space-y-4">

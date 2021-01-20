@@ -20,13 +20,13 @@ export default function DestinationCard({
   return (
     <a href={`/${username}/${uuid}`} rel="noopener noreferrer">
       <div className="flex items-center rounded-lg bg-white shadow-lg overflow-hidden h-32 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105">
-        <Image
+        {imageUrl && <Image
           src={imageUrl}
           alt={imageAlt}
           width={128}
           height={128}
           className="h-32 w-32 flex-shrink-0"
-        />
+        />}
 
         <div className="px-6 py-4">
           <h3 className="text-lg font-semibold text-gray-800">{title}</h3>

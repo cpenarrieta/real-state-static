@@ -43,7 +43,7 @@ export default function Features() {
 
         <div className="relative">
           <h3 className="text-center text-3xl leading-8 font-extrabold tracking-tight text-logoFont sm:text-4xl sm:leading-10">
-            A property website for 2020
+            A property website for 2021
           </h3>
           <p className="mt-4 max-w-3xl mx-auto text-center text-xl leading-7 text-gray-500">
             Dedicated Website for each of your properties. Add up to 50

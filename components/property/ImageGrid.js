@@ -51,7 +51,6 @@ export default function ImageGrid({ images }) {
                   isZoomed={activeIndex === i}
                   onZoomChange={handleZoomChange}
                   transitionDuration={0}
-                  // wrapStyle={{ width: "100%" }}
                 >
                   <Image
                     src={img.url}

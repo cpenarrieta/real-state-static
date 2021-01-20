@@ -107,7 +107,7 @@ export default function Footer() {
           </a>
         </div>
         <p className="mt-8 text-center text-base leading-6 text-logoFont">
-          &copy; 2020 RealtorApp, Inc. All rights reserved.
+          &copy; 2021 RealtorApp, Inc. All rights reserved.
         </p>
       </div>
     </footer>
