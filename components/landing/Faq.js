@@ -57,13 +57,13 @@ export default function Faq() {
             </div>
             <div className="space-y-2">
               <dt className="text-lg leading-6 font-medium text-logoRed">
-                What does the $50 price includes?
+                What does the $25 price includes?
               </dt>
               <dd className="text-base leading-6 text-logoFont">
                 You will be able to edit a property website and it will be live
                 forever. You will be able to make changes, view analytics and
                 receive leads information. Also, keep in mind that each property
-                website costs $50 but you will only pay once the website is
+                website costs $25 but you will only pay once the website is
                 ready.
               </dd>
             </div>

@@ -243,7 +243,7 @@ export default function Agent({
             <div className="space-y-12">
               <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
                 <h2 className="text-xl leading-9 font-bold text-white tracking-tight sm:text-4xl">
-                  My Managed Properties
+                  Featured Properties
                 </h2>
                 <p className="text-xl leading-7 text-gray-300">
                   Check the following properties and let me know interrests you.
