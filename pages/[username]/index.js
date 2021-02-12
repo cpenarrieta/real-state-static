@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Head from "next/head";
 import fetch from "node-fetch";
@@ -7,6 +7,7 @@ import LeadForm from "../../components/property/LeadForm";
 import Footer from "../../components/property/Footer";
 import PropertyCard from "../../components/user/PropertyCard";
 import { formatPhoneNumber } from "../../components/property/utils/formatPhoneNumber";
+import ShareModal from "../../components/property/ShareModal";
 
 export default function Agent({
   error,
@@ -27,6 +28,7 @@ export default function Agent({
   website,
 }) {
   const router = useRouter();
+  const [showShareModal, setShowShareModal] = useState(false);
 
   useEffect(() => {
     async function visitorFunction() {
@@ -57,6 +59,9 @@ export default function Agent({
 
   const { username } = router.query;
   const seoDescription = `${firstName} ${lastName} | Real Estate Agent`;
+
+  const origin = "https://realtorapp.co";
+  const liveWebsiteUrl = `${origin}/${username}`;
 
   return (
     <div>
@@ -230,6 +235,42 @@ export default function Agent({
               >
                 Contact Me
               </button>
+
+              <button
+                type="button"
+                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-logoFont hover:bg-logoFont focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                onClick={async () => {
+                  if (navigator.share) {
+                    const shareData = {
+                      title: seoDescription,
+                      text: seoDescription,
+                      url: liveWebsiteUrl,
+                    };
+
+                    try {
+                      await navigator.share(shareData);
+                    } catch {}
+                  } else {
+                    setShowShareModal(true);
+                  }
+                }}
+              >
+                <svg
+                  className="-ml-1 mr-3 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                  />
+                </svg>
+                Share
+              </button>
             </div>
           </div>
         </div>
@@ -239,7 +280,7 @@ export default function Agent({
 
       {property && property.length && (
         <div className="bg-logoFont pt-44 sm:pt-36 md:pt-20 lg:pt-12">
-          <div className="mx-auto py-12 px-4 max-w-screen-xl sm:px-6 lg:px-8 lg:py-24">
+          <div className="mx-auto py-16 px-4 max-w-screen-xl sm:py-12 sm:px-6 lg:px-8 lg:py-24">
             <div className="space-y-12">
               <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
                 <h2 className="text-xl leading-9 font-bold text-white tracking-tight sm:text-4xl">
@@ -285,6 +326,13 @@ export default function Agent({
       </div>
 
       <Footer color="logoFont" />
+
+      <ShareModal
+        showModal={showShareModal}
+        setShowModal={setShowShareModal}
+        liveWebsiteUrl={liveWebsiteUrl}
+        seoTitle={seoDescription}
+      />
     </div>
   );
 }
