@@ -164,7 +164,7 @@ export default function Hero() {
                 <span className="text-logoRed">your property deserves</span>
               </h1>
               <h2 className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                We'll manage all your peoperty websites with lead capture
+                We'll manage all your property websites with lead capture
                 capabilities, open house schedule and analytics dashboards. No
                 subscriptions, No contracts, Pay once and own your property
                 website forever.
