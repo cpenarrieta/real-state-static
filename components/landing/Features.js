@@ -348,6 +348,8 @@ export default function Features() {
           </div>
         </div>
 
+        {/* Details */}
+
         <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div className="relative">
             <h4 className="text-2xl leading-8 font-extrabold text-logoFont tracking-tight sm:text-3xl sm:leading-9">
@@ -484,13 +486,15 @@ export default function Features() {
             </svg>
             <Image
               className="relative mx-auto"
-              src="/ra_edit.png"
+              src="/details-2.png"
               alt="Edit Property"
               width={700}
               height={500}
             />
           </div>
         </div>
+
+        {/* Preview */}
 
         <svg
           className="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12"
@@ -640,6 +644,187 @@ export default function Features() {
                 alt="Add Images"
               />
             </div>
+          </div>
+        </div>
+
+        {/* QR Code */}
+
+        <svg
+          className="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4"
+          width="404"
+          height="784"
+          fill="none"
+          viewBox="0 0 404 784"
+        >
+          <defs>
+            <pattern
+              id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="4"
+                height="4"
+                className="text-gray-200"
+                fill="currentColor"
+              />
+            </pattern>
+          </defs>
+          <rect
+            width="404"
+            height="784"
+            fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)"
+          />
+        </svg>
+
+        <div className="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div className="relative">
+            <h4 className="text-2xl leading-8 font-extrabold text-logoFont tracking-tight sm:text-3xl sm:leading-9">
+              Print your QR Code
+            </h4>
+            <p className="mt-3 text-lg leading-7 text-gray-500">{/* TODO */}</p>
+
+            <ul className="mt-10">
+              <li className="mt-10">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h5 className="text-lg leading-6 font-medium text-logoFont">
+                      Generate your QR Code for free
+                    </h5>
+                    <p className="mt-2 text-base leading-6 text-gray-500">
+                      {/* TODO */}
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li className="mt-10">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h5 className="text-lg leading-6 font-medium text-logoFont">
+                      Download or Print your QR code
+                    </h5>
+                    <p className="mt-2 text-base leading-6 text-gray-500">
+                      {/* TODO */}
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li className="mt-10">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <svg
+                        className="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h5 className="text-lg leading-6 font-medium text-logoFont">
+                      Put your QR code in your sign
+                    </h5>
+                    <p className="mt-2 text-base leading-6 text-gray-500">
+                      This will help customer to inmediatly take a look inside
+                      your listing.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-10 -mx-4 relative lg:mt-0">
+            <svg
+              className="absolute left-1/2 transform -translate-x-1/2 translate-y-16 lg:hidden"
+              width="784"
+              height="404"
+              fill="none"
+              viewBox="0 0 784 404"
+            >
+              <defs>
+                <pattern
+                  id="ca9667ae-9f92-4be7-abcb-9e3d727f2941"
+                  x="0"
+                  y="0"
+                  width="20"
+                  height="20"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <rect
+                    x="0"
+                    y="0"
+                    width="4"
+                    height="4"
+                    className="text-gray-200"
+                    fill="currentColor"
+                  />
+                </pattern>
+              </defs>
+              <rect
+                width="784"
+                height="404"
+                fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
+              />
+            </svg>
+            <Image
+              className="relative mx-auto"
+              src="/qr-1.png"
+              alt="Print your property website QR code"
+              width={700}
+              height={500}
+            />
           </div>
         </div>
       </div>
