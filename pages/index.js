@@ -34,6 +34,7 @@ export default function Home({ lifetime }) {
           alt="Realtor App logo"
         ></meta>
         <link href="https://realtorapp.co/" rel="canonical"></link>
+        <link rel="icon" type="image/png" href="/16.png" />
         <link rel="apple-touch-icon" sizes="57x57" href="/57.png" />
         <link rel="apple-touch-icon" sizes="60x60" href="/60.png" />
         <link rel="apple-touch-icon" sizes="72x72" href="/72.png" />

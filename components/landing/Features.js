@@ -187,13 +187,7 @@ export default function Features() {
                 fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
               />
             </svg>
-            <Image
-              className="relative mx-auto"
-              src="/ra_analytics.png"
-              alt="Analytics dashboard"
-              width={700}
-              height={500}
-            />
+            <video muted autoPlay loop playsInline src="/analytics.mp4"></video>
           </div>
         </div>
 
@@ -242,6 +236,36 @@ export default function Features() {
 
               <ul className="mt-10">
                 <li>
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                        <svg
+                          className="h-6 w-6"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h5 className="text-lg leading-6 font-medium text-logoFont">
+                        Lead Generation Forms within your website
+                      </h5>
+                      <p className="mt-2 text-base leading-6 text-gray-500">
+                        {/* TODO */}
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li className="mt-10">
                   <div className="flex">
                     <div className="flex-shrink-0">
                       <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
@@ -337,13 +361,7 @@ export default function Features() {
                   fill="url(#e80155a9-dfde-425a-b5ea-1f6fadd20131)"
                 />
               </svg>
-              <Image
-                className="relative mx-auto"
-                src="/ra_leads.png"
-                alt="Leads dashboard"
-                width={700}
-                height={500}
-              />
+              <video muted autoPlay loop playsInline src="/leads.mp4"></video>
             </div>
           </div>
         </div>
@@ -484,13 +502,13 @@ export default function Features() {
                 fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
               />
             </svg>
-            <Image
-              className="relative mx-auto"
-              src="/details-2.png"
-              alt="Edit Property"
-              width={700}
-              height={500}
-            />
+            <video
+              muted
+              autoPlay
+              loop
+              playsInline
+              src="/edit_property.mp4"
+            ></video>
           </div>
         </div>
 
@@ -818,19 +836,13 @@ export default function Features() {
                 fill="url(#ca9667ae-9f92-4be7-abcb-9e3d727f2941)"
               />
             </svg>
-            <Image
-              className="relative mx-auto"
-              src="/qr-1.png"
-              alt="Print your property website QR code"
-              width={700}
-              height={500}
-            />
+            <video muted autoPlay loop playsInline src="/qr.mp4"></video>
           </div>
         </div>
 
- {/* Preview */}
+        {/* Preview */}
 
- <svg
+        <svg
           className="hidden lg:block absolute right-full transform translate-x-1/2 translate-y-12"
           width="404"
           height="784"
@@ -926,7 +938,8 @@ export default function Features() {
                     </div>
                     <div className="ml-4">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
-                        Website built with best practices to produce a blazing fast experience.
+                        Website built with best practices to produce a blazing
+                        fast experience.
                       </h5>
                       <p className="mt-2 text-base leading-6 text-gray-500">
                         {/* TODO */}
@@ -980,10 +993,9 @@ export default function Features() {
             </div>
           </div>
         </div>
-
-
-
-
+      
+      
+      
       </div>
     </div>
   );
