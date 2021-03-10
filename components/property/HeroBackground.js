@@ -22,6 +22,7 @@ export default function HeroBackground({
   uuid,
   username,
   seoTitle,
+  openHouseActive,
 }) {
   const [showShareModal, setShowShareModal] = useState(false);
   const [badgeText, badgeColor] = getPropertyBadge(status, publishedStatus);
@@ -33,7 +34,7 @@ export default function HeroBackground({
 
   // TODO: set default background if there is no image
   let comingOpenHouse = [];
-  if (openHouse && openHouse.length > 0) {
+  if (openHouseActive && openHouse && openHouse.length > 0) {
     const today = new Date();
     openHouse.forEach((o) => {
       if (isToday(o.date) || compareDesc(today, o.date) >= 0) {

@@ -55,6 +55,7 @@ export default function PropertyPage({
   userFacebookLink,
   userWebsite,
   seoTitle,
+  openHouseActive,
 }) {
   return (
     <div className="h-full bg-gray-50">
@@ -73,6 +74,7 @@ export default function PropertyPage({
         color={color}
         hidePrice={hidePrice}
         openHouse={openHouse}
+        openHouseActive={openHouseActive}
         uuid={uuid}
         username={username}
         seoTitle={seoTitle}
