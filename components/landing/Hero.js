@@ -178,6 +178,16 @@ export default function Hero() {
                     Start Now
                   </a>
                 </span>
+                <span className="ml-5 inline-flex rounded-md shadow">
+                  <a
+                    href="https://realtorapp.co/cpenarrieta/b4wjd6OoLv"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-logoFont focus:outline-none focus:border-logoRed-500 hover:text-logoRed focus:shadow-outline-logoRed active:bg-gray-50 transition duration-150 ease-in-out"
+                  >
+                    Demo Site
+                  </a>
+                </span>
               </p>
             </div>
           </div>
