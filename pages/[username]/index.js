@@ -361,8 +361,9 @@ export async function getStaticProps(ctx) {
 export async function getStaticPaths() {
   const res = await fetch(`${process.env.GATEWAY_API}/home_static/users`);
   const json = await res.json();
+  const cleanUsername = json.filter(a => a.username)
 
-  const paths = json.map((a) => {
+  const paths = cleanUsername.map((a) => {
     return {
       params: {
         username: a?.username?.toString(),
