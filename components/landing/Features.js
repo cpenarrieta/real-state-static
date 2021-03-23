@@ -48,13 +48,10 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Real time data
                     </h5>
-                    <p className="mt-2 text-base leading-6 text-gray-500">
-                      {/* TODO */}
-                    </p>
                   </div>
                 </div>
               </li>
@@ -78,7 +75,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Compare Sessions, Users and Leads
                     </h5>
@@ -108,7 +105,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Analyse your property performance
                     </h5>
@@ -121,7 +118,7 @@ export default function Features() {
             </ul>
           </div>
 
-          <div className="mt-10 -mx-4 relative lg:mt-0">
+          <div className="mt-10 -mx-4 relative lg:mt-0 shadow-lg">
             <video muted autoPlay loop playsInline src="/analytics.mp4"></video>
           </div>
         </div>
@@ -157,7 +154,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         Lead Generation Forms within your website
                       </h5>
@@ -187,7 +184,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         Organize your leads and prioritize them
                       </h5>
@@ -217,7 +214,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         View analytics per leads
                       </h5>
@@ -230,7 +227,7 @@ export default function Features() {
               </ul>
             </div>
 
-            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1 shadow-lg">
               <video muted autoPlay loop playsInline src="/leads.mp4"></video>
             </div>
           </div>
@@ -266,7 +263,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Add Video
                     </h5>
@@ -296,7 +293,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Add Pictures
                     </h5>
@@ -326,7 +323,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Add Attachments
                     </h5>
@@ -356,7 +353,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Set Open House Hours
                     </h5>
@@ -369,7 +366,7 @@ export default function Features() {
             </ul>
           </div>
 
-          <div className="mt-10 -mx-4 relative lg:mt-0">
+          <div className="mt-10 -mx-4 relative lg:mt-0 shadow-lg">
             <video
               className="z-10"
               muted
@@ -414,7 +411,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         Preview your website before paying
                       </h5>
@@ -444,7 +441,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         Preview your changes instantly
                       </h5>
@@ -457,7 +454,7 @@ export default function Features() {
               </ul>
             </div>
 
-            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1 shadow-lg">
               <Image
                 className="relative mx-auto"
                 width={700}
@@ -499,7 +496,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Generate your QR Code for free
                     </h5>
@@ -529,7 +526,7 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Download or Print your QR code
                     </h5>
@@ -560,21 +557,17 @@ export default function Features() {
                       </svg>
                     </div>
                   </div>
-                  <div className="ml-4">
+                  <div className="ml-4 flex items-center">
                     <h5 className="text-lg leading-6 font-medium text-logoFont">
                       Put your QR code in your sign
                     </h5>
-                    <p className="mt-2 text-base leading-6 text-gray-500">
-                      This will help customer to inmediatly take a look inside
-                      your listing.
-                    </p>
                   </div>
                 </div>
               </li>
             </ul>
           </div>
 
-          <div className="mt-10 -mx-4 relative lg:mt-0">
+          <div className="mt-10 -mx-4 relative lg:mt-0 shadow-lg">
             <video muted autoPlay loop playsInline src="/qr.mp4"></video>
           </div>
         </div>
@@ -612,7 +605,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         SEO Ready and Optimized websites
                       </h5>
@@ -642,7 +635,7 @@ export default function Features() {
                         </svg>
                       </div>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-4 flex items-center">
                       <h5 className="text-lg leading-6 font-medium text-logoFont">
                         Website built with best practices to produce a blazing
                         fast experience.
@@ -656,11 +649,11 @@ export default function Features() {
               </ul>
             </div>
 
-            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1">
+            <div className="mt-10 -mx-4 relative lg:mt-0 lg:col-start-1 shadow-lg">
               <Image
                 className="relative mx-auto"
-                width={700}
-                height={500}
+                width={800}
+                height={406}
                 src="/speed.png"
                 alt="Add Images"
               />
